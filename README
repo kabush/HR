@@ -1,0 +1,175 @@
+# ========================================
+# ========================================
+# Keith Bush, PhD (2018)
+# Univ. of Arkansas for Medical Sciences
+# Brain Imaging Research Center (BIRC)
+# ========================================
+# ========================================
+
+# ----------------------------------------
+# ----------------------------------------
+    OTHER CONTRIBUTORS:
+# ----------------------------------------
+# ----------------------------------------
+Kayla Wilson (2018)
+    heart rate variability
+
+# ----------------------------------------
+# ----------------------------------------
+    OVERVIEW: 
+# ----------------------------------------
+# ----------------------------------------
+
+The project is the processing and analysis pipeline used to conduct a
+secondary analysis of physiological measures of affect processing as
+part of the NSF Cognitive Neuroscience project titled "Cognitive
+Control Theoretic Mechanisms of Real-time fMRI-guided Neuromodulation
+(Award# BCS-1735820). For award details, see:
+
+https://www.nsf.gov/awardsearch/showAward?AWD_ID=1735820
+
+# ----------------------------------------
+# ----------------------------------------
+    INTRODUCTION: 
+# ----------------------------------------
+# ----------------------------------------
+
+The purpose of this code is to perform the following tasks:
+
+1) Preprocess fMRI, psychophysiological, and cognitive-behaviorial
+data for the project using best practices (and document literature of
+each step).
+
+2) Construct beta-series (Rissma, 2004) features for each data type
+where relevant (fMRI & HRV)
+
+3) Predict cognitive (i.e., emotion) and physiological (i.e., HRV
+betas) via fMRI-derived whole-brain beta features to identify the
+"plant" of the control system. For the purposes of this project, we
+define the plant as the functional neuranatomical activations encoding
+the valence dimension of affect according to the circumplex model of
+emotion.  Beta-series of fMRI are referred to (pseudocorrectly) as
+brain states.
+
+5) Identify functional neuranatomical descriptions of affect
+processing (including neural predictors of physiological signals).
+
+# ----------------------------------------
+# ----------------------------------------
+    DATA SOURCES:
+# ----------------------------------------
+# ----------------------------------------
+
+**************
+*** TICKET ***
+**************
+
+# ----------------------------------------
+# ----------------------------------------
+    PROJECT OVERVIEW:
+# ----------------------------------------
+# ----------------------------------------
+
+/HRV
+    run_project.m  # the master script which sequentially
+    		   # calls all supporting scripts.  If the
+	      	   # project executes correctly then the 
+	      	   # log directory will contain a textual
+	      	   # description of all important statistical
+	      	   # findings and the fig directroy will contain
+	      	   # all important figures.  Intermediate data
+	      	   # will be stored at the path location specified
+	      	   # by proj.path.data in the proj.mat 
+    matlab_reset.m # clears the workspace and resets matlab's
+                   # path to the initial launch state
+    /source
+        init_project.m  # all project parameters
+    	clean_project.m # wipes the directory storing
+    			# intermediate files
+
+        /analysis
+	    # contains code for statistical tests
+	    # and plotting
+        /beta_series
+	    # beta_series extraction 
+	    # scripts for all data types
+	/haufe
+	    # contains code for constructing permutation
+	    # tested Haufe-transformed encoding hyperplanes
+        /mvpa
+	    # whole-brain and dimensionally
+	    # reduces MVPA predictions of
+	    # affect
+        /preprocess
+            # preprocessing scripts for
+	    # all data types
+
+    /design
+        # Stores critical task design data files
+ 	# which maintain all of the experiment
+	# designs (*.mat files currently)
+    /subj_lists
+        # stores text files listing the included
+	# subjects for each study being used in
+	# this project analysis
+    /log
+        # where statistical findings are stored
+    /fig
+        # where plots are stored
+    /doc
+        # where project documentation is stored    
+
+# ----------------------------------------
+# ----------------------------------------
+    REQUIRED TOOLS
+# ----------------------------------------
+# ----------------------------------------
+
+matlab (Tested only for R2016B)
+    - statistical analysis toolbox
+    - parallel computing toolbox
+
+ANFI (Version AFNI_18.2.06)
+
+FSL (5.0.9)
+
+python (2.7)
+    - numpy	
+    - scipy
+    - matplotlib
+    - pandas
+
+
+
+# ----------------------------------------
+# ----------------------------------------
+    REQUIRED LIBRARIES
+# ----------------------------------------
+# ----------------------------------------
+
+kablab
+    https://github.com/kabush/kablab    
+
+export_fig
+    https://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig
+
+# ----------------------------------------
+# ----------------------------------------
+    COMMITMENT TO OPEN SCIENCE
+# ----------------------------------------
+# ----------------------------------------
+
+This project is commited to transparency and openscience
+principles. Currently the project's codebase is largely written in
+Matlab, csh,and AFNI (with a small set of functions writen in Python
+2.7). A core goal of this project is to migrate the code base entirely
+to a freely available language (~ Python 3).
+
+# ----------------------------------------
+# ----------------------------------------
+    REFERENCES
+# ----------------------------------------
+# ----------------------------------------
+
+
+
