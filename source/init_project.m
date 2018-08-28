@@ -56,40 +56,55 @@ proj.path.subj_list = [proj.path.code,'subj_lists/'];
 %% Design path (this is a meta source file)
 proj.path.design = [proj.path.code,'design/'];
 
-%% HRV paths
-proj.path.hrv_beta = [proj.path.data,'hrv_beta/']; %ex and in put in
-                                                   %the same
-                                                   %directory
-proj.path.hrv_bpm = [proj.path.data,'hrv_bpm/'];  
-proj.path.hrv_mvpa_thresh = [proj.path.data,'hrv_mvpa_thresh/'];  
-proj.path.hrv_haufe_thresh = [proj.path.data,'hrv_haufe_thresh/']; 
-proj.path.hrv_mvpa_all = [proj.path.data,'hrv_mvpa_all/'];  
-proj.path.hrv_haufe_all = [proj.path.data,'hrv_haufe_all/'];  
-proj.path.hrv_haufe_permute_all = [proj.path.data,'hrv_haufe_permute_all/'];  
-proj.path.hrv_haufe_permute_thresh = [proj.path.data,'hrv_haufe_permute_thresh/'];  
-
-%% fMRI path
-proj.path.fmri_clean = [proj.path.data,'fmri_clean/'];
-proj.path.fmri_ex_beta = [proj.path.data,'fmri_ex_beta/'];
-proj.path.fmri_in_beta = [proj.path.data,'fmri_in_beta/'];
-proj.path.gm_mask = [proj.path.data,'gm_mask/'];
-
-%% Target path
-proj.path.trg = [proj.path.data,'target_ex/'];
-proj.path.trg_in = [proj.path.data,'target_in/'];
-
-%% MVPA path
-proj.path.mvpa_fmri_ex_gs_cls = [proj.path.data,'mvpa_fmri_ex_gs_cls/'];
-proj.path.mvpa_fmri_ex_gm_cls = [proj.path.data,'mvpa_fmri_ex_gm_cls/'];
-
 %% Results logging file
 proj.path.logfile = [proj.path.log,'logfile.txt'];
 eval(['! rm ',proj.path.logfile]); % clear at initialization
 
+%% ----------------------------------------
+%% Data Output Directory (All top-level names)
+proj.path.mri.name = 'mri/';
+proj.path.physio.name = 'physio/';
+proj.path.betas.name = 'beta_series/';
+proj.path.trg.name = 'target/';
+proj.path.mvpa.name = 'mvpa/';
+proj.path.haufe.name = 'haufe/';
+proj.path.ctrl.name = 'ctrl/';
+
+%% ----------------------------------------
+%% Specific Output Paths
+
+%% fMRI paths (all)
+proj.path.mri.mri_clean = [proj.path.data,proj.path.mri.name,'mri_clean/'];
+proj.path.mri.gm_mask = [proj.path.data,proj.path.mri.name,'gm_mask/'];
+proj.path.betas.fmri_ex_beta = [proj.path.data,proj.path.betas.name,'fmri_ex_beta/'];
+proj.path.betas.fmri_in_beta = [proj.path.data,proj.path.betas.name,'fmri_in_beta/'];
+
+%% HRV paths (all)
+proj.path.physio.hrv_beta = [proj.path.data,proj.path.betas.name,'hrv_beta/']; 
+proj.path.physio.hrv_bpm = [proj.path.data,proj.path.betas.name,'hrv_bpm/'];  
+
+%% Target paths (all)
+proj.path.trg.ex = [proj.path.data,proj.path.trg.name,'target_ex/'];
+proj.path.trg.in = [proj.path.data,proj.path.trg.name,'target_in/'];
+
+%% MVPA paths (all)
+proj.path.mvpa.hrv_thresh = [proj.path.data,proj.path.mvpa.name,'hrv_thresh/'];  
+proj.path.mvpa.hrv_all = [proj.path.data,proj.path.mvpa.name,'hrv_all/'];  
+
+%% Haufe paths (all)
+% proj.path.hrv_haufe_thresh = [proj.path.data,'hrv_haufe_thresh/']; 
+% proj.path.hrv_haufe_all = [proj.path.data,'hrv_haufe_all/'];  
+proj.path.haufe.hrv_permute_thresh = [proj.path.data,proj.path.haufe.name,'hrv_permute_thresh/'];  
+proj.path.haufe.hrv_permute_all = [proj.path.data,proj.path.haufe.name,'hrv_permute_all/'];  
+
+% %% MVPA path
+% proj.path.mvpa_fmri_ex_gs_cls = [proj.path.data,'mvpa_fmri_ex_gs_cls/'];
+% proj.path.mvpa_fmri_ex_gm_cls = [proj.path.data,'mvpa_fmri_ex_gm_cls/'];
+
 %% Task file nomenclature
-proj.path.name_id1 = 'Identify_run_1';
-proj.path.name_id2 = 'Identify_run_2';
-proj.path.name_rest = 'Rest';
+proj.path.task.name_id1 = 'Identify_run_1';
+proj.path.task.name_id2 = 'Identify_run_2';
+proj.path.task.name_rest = 'Rest';
 
 %% ----------------------------------------
 %% Project Parameter Definitions
@@ -98,14 +113,14 @@ proj.path.name_rest = 'Rest';
 proj.param.studies = {'CTM','INCA'};
 
 %% fMRI Processing param
-proj.param.TR = 2.0;
-proj.param.slices = 37;
-proj.param.slice_pattern = 'seq+z';
-proj.param.do_anat = 'yes';
-proj.param.do_epi = 'yes';
-proj.param.tasks = 'identify'; %rest modulate 
-proj.param.scans = 'run1 run2';
-proj.param.rest_scans = 'run1';
+proj.param.mri.TR = 2.0;
+proj.param.mri.slices = 37;
+proj.param.mri.slice_pattern = 'seq+z';
+proj.param.mri.do_anat = 'yes';
+proj.param.mri.do_epi = 'yes';
+proj.param.mri.tasks = 'identify'; %rest modulate 
+proj.param.mri.scans = 'run1 run2';
+proj.param.mri.rest_scans = 'run1';
 
 %% *** Annoying extra parameter (silently swear at Philips software
 %% engineers) ***  This shift is due to manner in which the design was
@@ -119,68 +134,74 @@ proj.param.rest_scans = 'run1';
 %% at the start of the identification runs which changed to 12 s
 %% following R5 upgrades (shift was introduced to keep original
 %% design files intact (possibly bad decision in the long run)
-proj.param.r5_shift = -6;
+proj.param.trg.r5_shift = -6;
 
 %% Supervised learning labels of stimuli
-proj.param.ex_id = 1;
-proj.param.in_id = 2;
-proj.param.feel_id = 3;
+proj.param.trg.ex_id = 1;
+proj.param.trg.in_id = 2;
+proj.param.trg.feel_id = 3;
 
-%% Cognitive dynamics labels of stimuli
-proj.param.cogdyn_in_id = 1;
-proj.param.cogdyn_cue_id = 2;
-proj.param.cogdyn_feel_id = 3;
-proj.param.cogdyn_rest_id = 4;
-
-%% Likert scores adjustment parameters
-proj.param.dummy_score = -1;
-proj.param.mid_score = 5.0; % used to binarize classes
 
 %% values representing binarized valence/arousal classes
-proj.param.pos_class = 1;
-proj.param.neg_class = -1;
+proj.param.trg.pos_class = 1;
+proj.param.trg.neg_class = -1;
+
+%% Likert scores adjustment parameters
+proj.param.trg.dummy_score = -1;
+proj.param.trg.mid_score = 5.0; % used to binarize classes
+
+%% Cognitive dynamics labels of stimuli
+proj.param.trg.cogdyn.in_id = 1;
+proj.param.trg.cogdyn.cue_id = 2;
+proj.param.trg.cogdyn.feel_id = 3;
+proj.param.trg.cogdyn.rest_id = 4;
+
+%% Start times of feel TRs relative to IN stimulus times
+proj.param.trg.feel_times = 4:proj.param.mri.TR:10;
+proj.param.trg.cue_times = 2; 
+proj.param.trg.post_in_rest_times = 12;
+
+%% Length of stimulus (in seconds)
+proj.param.trg.stim_t = 2;
+
+%% Length of the tasks (in units of TR)
+proj.param.mri.n_trs_id1 = 282;
+proj.param.mri.n_trs_id2 = 282;
+proj.param.mri.n_trs_rest = 225;
+proj.param.mri.n_trs_mod1 = 310;
+proj.param.mri.n_trs_mod2 = 310;
 
 %% Design construction fidelity (20 hz) 
 %% all designs are manufactured at hi-fidelity
 %% before downsampling to match fMRI acquisition
 %% rate to minimize noise caused by slow TR
-proj.param.hirez = 20;
-
-%% Length of the tasks (in units of TR)
-proj.param.n_trs_id1 = 282;
-proj.param.n_trs_id2 = 282;
-proj.param.n_trs_rest = 225;
-proj.param.n_trs_mod1 = 310;
-proj.param.n_trs_mod2 = 310;
-
-%% Length of stimulus (in seconds)
-proj.param.stim_t = 2;
+proj.param.betas.hirez = 20;
 
 %% Biopac channels
-proj.param.chan_hr = 1;
-proj.param.chan_rsp = 2;
-proj.param.chan_scr = 3;
-proj.param.chan_emg_zygo = 4;
-proj.param.chan_emg_corr = 5;
+proj.param.physio.chan_hr = 1;
+proj.param.physio.chan_rsp = 2;
+proj.param.physio.chan_scr = 3;
+proj.param.physio.chan_emg_zygo = 4;
+proj.param.physio.chan_emg_corr = 5;
 
 %% Biopac recording freqs
-proj.param.hz_scr = 2000;
-proj.param.hz_emg = 2000;
-proj.param.hz_hr = 2000;
+proj.param.physio.hz_scr = 2000;
+proj.param.physio.hz_emg = 2000;
+proj.param.physio.hz_hr = 2000;
 
 %% HR analysis parameters
-proj.param.hrv.intrv = 0.5:0.5:4.0;
-proj.param.hrv.n_resamp = 30;
-proj.param.hrv.thresh_seq = 0.1:0.1:3.4;
-proj.param.hrv.convert_bpm = 60;
+proj.param.physio.hrv.intrv = 0.5:0.5:4.0;
+proj.param.physio.hrv.n_resamp = 30;
+proj.param.physio.hrv.thresh_seq = 0.1:0.1:3.4;
+proj.param.physio.hrv.convert_bpm = 60;
 
 %% MVPA parameters
-proj.param.mvpa_kernel = 'linear';
-proj.param.mvpa_n_resamp = 1; % should be >= 30
+proj.param.mvpa.kernel = 'linear';
+proj.param.mvpa.n_resamp = 1; % should be >= 30
 
 %% Haufe parameters
-proj.param.permute_nperm = 480;
-proj.param.haufe_chunk = 10;
+proj.param.haufe.npermute = 480;
+proj.param.haufe.chunk = 10;
 
 %% Plotting parameters
 proj.param.plot.axisLabelFontSize = 18;

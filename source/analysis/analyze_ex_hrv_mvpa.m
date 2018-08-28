@@ -29,7 +29,7 @@ for i = 1:numel(subjs)
     id = subjs{i}.id;
 
     try
-        load([proj.path.hrv_mvpa_thresh,subj_study,'_',name,'_result.mat']);
+        load([proj.path.mvpa.hrv_thresh,subj_study,'_',name,'_result.mat']);
     catch
         disp('    Could not find HRV beta file for processing.');
     end
@@ -61,7 +61,7 @@ for i = 1:numel(subjs)
     id = subjs{i}.id;
 
     try
-        load([proj.path.hrv_mvpa_all,subj_study,'_',name,'_result.mat']);
+        load([proj.path.mvpa.hrv_all,subj_study,'_',name,'_result.mat']);
     catch
         disp('    Could not find HRV beta file for processing.');
     end
@@ -80,5 +80,5 @@ hold on;
 plot(sort(rho_v_all),sort(rho_v_all)*b(2)+b(1));
 
 %% ----------------------------------------
-load([proj.path.hrv_bpm,'cv_rho_all.mat']);
-load([proj.path.hrv_bpm,'cv_rho_thresh.mat']);
+load([proj.path.physio.hrv_bpm,'cv_rho_all.mat']);
+load([proj.path.physio.hrv_bpm,'cv_rho_thresh.mat']);

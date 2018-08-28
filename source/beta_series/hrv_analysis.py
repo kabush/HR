@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 import scipy.io as io
+from scipy import signal
 from pandas import DataFrame as df
 import sys
 
@@ -44,18 +45,18 @@ def butter_bandpass(lowcut, highcut, fs, order=5):
     nyq = 0.5 * fs
     low = lowcut / nyq
     high = highcut / nyq
-    b, a = butter(order, [low, high], btype='band')
+    b, a = signal.butter(order, [low, high], btype='band')
     return b, a
 
 def butter_bandpass_filter(data, lowcutoff, highcutoff, fs, order):
     b, a = butter_bandpass(lowcutoff, highcutoff, fs, order)
-    y = filtfilt(b, a, data)
+    y = signal.filtfilt(b, a, data)
     return y
 
 def detect_peaks(dataset, Hz):  # Mark regions of interest
 
     peaklist = []
-    data = np.asarray(dataset.hr)
+    data = np.asarray(dataset) #.hr)
     p_range = .2
 
     for i in range(1, len(data)-1): ##### Check with Keith on this fix ########

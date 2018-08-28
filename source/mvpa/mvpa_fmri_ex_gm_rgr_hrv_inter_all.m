@@ -18,19 +18,19 @@ logger(['************************************************'],proj.path.logfile);
 
 %% Set-up Directory Structure for fMRI betas
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.hrv_mvpa_all]);
-    eval(['! rm -rf ',proj.path.hrv_mvpa_all]);
-    disp(['Creating ',proj.path.hrv_mvpa_all]);
-    eval(['! mkdir ',proj.path.hrv_mvpa_all]);
+    disp(['Removing ',proj.path.mvpa.hrv_all]);
+    eval(['! rm -rf ',proj.path.mvpa.hrv_all]);
+    disp(['Creating ',proj.path.mvpa.hrv_all]);
+    eval(['! mkdir ',proj.path.hrv_all]);
 end
 
 %% ----------------------------------------
 %% Load labels;
-label_id = load([proj.path.trg,'stim_ids.txt']);
-v_score = load([proj.path.trg,'stim_v_scores.txt']);
+label_id = load([proj.path.trg.ex,'stim_ids.txt']);
+v_score = load([proj.path.trg.ex,'stim_v_scores.txt']);
 
 %% extract only extrinsic stimuli
-v_score = v_score(find(label_id==proj.param.ex_id));
+v_score = v_score(find(label_id==proj.param.trg.ex_id));
 
 %% ----------------------------------------
 %% load subjs
@@ -38,7 +38,7 @@ subjs = load_subjs(proj);
 
 %% ----------------------------------------
 %% load group HRV data
-load([proj.path.hrv_bpm,'all_bpm.mat']);
+load([proj.path.physio.hrv_bpm,'all_bpm.mat']);
 
 %% Storage for MVPA inputs
 all_ex_img = [];
@@ -66,14 +66,14 @@ for i = 1:numel(subjs)
     name = subjs{i}.name;
 
     %% Load gray matter mask 
-    gm_nii = load_nii([proj.path.gm_mask,'group_gm_mask.nii']);
+    gm_nii = load_nii([proj.path.mri.gm_mask,'group_gm_mask.nii']);
     mask = double(gm_nii.img);
     brain_size=size(mask);
     mask = reshape(mask,brain_size(1)*brain_size(2)*brain_size(3),1);
     in_brain=find(mask==1);  
 
     %% Load beta-series
-    base_nii = load_nii([proj.path.fmri_ex_beta,subj_study,'_',name,'_lss.nii']);
+    base_nii = load_nii([proj.path.betas.fmri_ex_beta,subj_study,'_',name,'_lss.nii']);
     brain_size = size(base_nii.img);
     
     %% Vectorize the base image
@@ -87,7 +87,7 @@ for i = 1:numel(subjs)
     subj_id = repmat(i,numel(all_bpm),1);
     
     %% Subselect extrinsic data
-    ex_id = find(label_id==proj.param.ex_id);
+    ex_id = find(label_id==proj.param.trg.ex_id);
     ex_img = all_img(ex_id,:);
 
     %% Normalize within current subject
@@ -127,7 +127,7 @@ for i = 1:numel(all_qlty_i)
     %% predict HRV (restricted data)
     [out,trg,~,mdl] = regress_inter_loocv(all_ex_img,all_hrv_bpm, ...
                                           all_subj_i,qlty_i, ...
-                                          proj.param.mvpa_kernel);
+                                          proj.param.mvpa.kernel);
     
     result.bpm.out_bpm = out;
     result.bpm.trg_bpm = trg;
@@ -139,7 +139,7 @@ for i = 1:numel(all_qlty_i)
 
     %% predict Valence (restricted data)
     [out,trg,~,mdl] = regress_inter_loocv(all_ex_img,all_v,all_subj_i, ...
-                                          qlty_i,proj.param.mvpa_kernel);
+                                          qlty_i,proj.param.mvpa.kernel);
 
     %% assemble results
     result.v.out_bpm = out;
@@ -150,7 +150,7 @@ for i = 1:numel(all_qlty_i)
     result.v.ids = mdl.ids;
 
     %% save out prediction result
-    save([proj.path.hrv_mvpa_all,subj_study,'_',name,'_result.mat'],'result');
+    save([proj.path.mvpa.hrv_all,subj_study,'_',name,'_result.mat'],'result');
 
     %% log 
     logger([subj_study,'_',name,', bpm(rho)=',num2str(result.bpm.rho),[', ' ...

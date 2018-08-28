@@ -13,10 +13,10 @@ load('proj.mat');
 
 %% Set-up Directory Structure
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.gm_mask]);
-    eval(['! rm -rf ',proj.path.gm_mask]);
-    disp(['Creating ',proj.path.gm_mask]);
-    eval(['! mkdir ',proj.path.gm_mask]);
+    disp(['Removing ',proj.path.mri.gm_mask]);
+    eval(['! rm -rf ',proj.path.mri.gm_mask]);
+    disp(['Creating ',proj.path.mri.gm_mask]);
+    eval(['! mkdir ',proj.path.mri.gm_mask]);
 end
 
 %% Create the subjects to be analyzed (possible multiple studies)
@@ -35,9 +35,9 @@ for i=1:numel(subjs)
     %% debug
     disp([subj_study,':',name]);
 
-    in_path = [proj.path.fmri_clean,subj_study,'_',name,'/anat/', ...
+    in_path = [proj.path.mri.mri_clean,subj_study,'_',name,'/anat/', ...
                subj_study,'.',name,'.anat.seg.fsl.MNI.GM+tlrc'];
-    out_path = [proj.path.gm_mask,subj_study,'.',name,'.gm.nii'];
+    out_path = [proj.path.mri.gm_mask,subj_study,'.',name,'.gm.nii'];
 
     %% convert the afni and store in gm_mask directory
     eval(['! 3dAFNItoNIFTI ',in_path]);
@@ -50,7 +50,7 @@ end
 %%========================================
 subj_study = subjs{1}.study;
 name = subjs{1}.name;
-base_gm_mask = load_nii([proj.path.gm_mask,subj_study,'.',name,'.gm.nii']);
+base_gm_mask = load_nii([proj.path.mri.gm_mask,subj_study,'.',name,'.gm.nii']);
 base_gm_mask.img = 0*base_gm_mask.img;
 
 %%========================================
@@ -63,7 +63,7 @@ for i=1:numel(subjs)
     name = subjs{i}.name;
     
     %% summarize individual masks
-    gm_mask = load_nii([proj.path.gm_mask,subj_study,'.',name,'.gm.nii']);
+    gm_mask = load_nii([proj.path.mri.gm_mask,subj_study,'.',name,'.gm.nii']);
     base_gm_mask.img = base_gm_mask.img + gm_mask.img;
 
 end
@@ -97,5 +97,5 @@ gm_vec = vec_img_2d_nii(final_gm_mask);
 disp(['Num. GM voxels: ',num2str(sum(gm_vec)),', should be 30K-50K.']);
 
 %% Save out grey-matter
-save_nii(final_gm_mask,[proj.path.gm_mask,'/group_gm_mask.nii']);
+save_nii(final_gm_mask,[proj.path.mri.gm_mask,'/group_gm_mask.nii']);
 

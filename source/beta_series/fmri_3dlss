@@ -36,7 +36,7 @@ set study = `cat ./study.txt`
 set subj = `cat ./subject.txt`
 
 ## Load and fix the raw data source path
-set datapth = ${homepth}/data/${project}/fmri_clean/${study}_${subj}
+set datapth = ${homepth}/data/${project}/mri/mri_clean/${study}_${subj} ## TICKET (hard-code)
 echo ${datapth} # debug
 
 ## ----------------------------------------
@@ -50,11 +50,11 @@ rm ./concat_runs*
 ## Use 3dDeconvolve solely to construct and format the regression target, y.)
 ## To view the formulated problem, execute the following code: 1dplot <file.1D>
 3dDeconvolve \
+	 -force_TR ${TR} \
     -input ./concat_runs+tlrc \
 	 -concat '1D: 0 '${nTR}/'' \
 	 -polort A \
 	 -censor ${tmppth}/${study}_${subj}.${task}.cmb.censor.1D \
-	 -force_TR ${TR} \
 	 -num_stimts 25 \
 	 -stim_file 1 ${tmppth}/${study}_${subj}.${task}.cmb.motion.1D'[0]' -stim_base 1 \
 	 -stim_file 2 ${tmppth}/${study}_${subj}.${task}.cmb.motion.1D'[1]' -stim_base 2 \

@@ -24,7 +24,7 @@ task=char(vars{1}(3));
 scan=char(vars{1}(4));
 
 %% Load motion file
-filename = [proj.path.data,'/fmri_clean/',study,'_',subj,'/',task, ...
+filename = [proj.path.mri.mri_clean,study,'_',subj,'/',task, ...
             '/',scan,'/',study,'.',subj,'.',task,'.',scan,'.motion.1D'];
 
 motion=load(filename);
@@ -81,7 +81,7 @@ end
 
 num_TRs=sum(censor);
 
-motion_path=[proj.path.data,'/fmri_clean/',study,'_',subj,'/',task, ...
+motion_path=[proj.path.mri.mri_clean,study,'_',subj,'/',task, ...
             '/',scan,'/',study,'.',subj,'.',task,'.',scan];
 
 dlmwrite([motion_path '.FD.1D'],FD,' ');

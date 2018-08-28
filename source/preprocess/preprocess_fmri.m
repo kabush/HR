@@ -13,10 +13,10 @@ load('proj.mat');
 
 %% Set-up Directory Structure
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.fmri_clean]);
-    eval(['! rm -rf ',proj.path.fmri_clean]);
-    disp(['Creating ',proj.path.fmri_clean]);
-    eval(['! mkdir ',proj.path.fmri_clean]);
+    disp(['Removing ',proj.path.mri.mri_clean]);
+    eval(['! rm -rf ',proj.path.mri.mri_clean]);
+    disp(['Creating ',proj.path.mri.mri_clean]);
+    eval(['! mkdir ',proj.path.mri.mri_clean]);
 end
 
 %% Create the subjects to be analyzed (possible multiple studies)
@@ -33,14 +33,14 @@ for i=1:numel(subjs)
     dlmwrite([proj.path.code,'tmp/project_name.txt'],proj.path.name,'');
 
     %% Get preprocessing params
-    dlmwrite([proj.path.code,'tmp/tr.txt'],num2str(proj.param.TR),'');
-    dlmwrite([proj.path.code,'tmp/slices.txt'],proj.param.slices,'');
-    dlmwrite([proj.path.code,'tmp/slice_pattern.txt'],proj.param.slice_pattern,'');
-    dlmwrite([proj.path.code,'tmp/do_anat.txt'],proj.param.do_anat,'');
-    dlmwrite([proj.path.code,'tmp/do_epi.txt'],proj.param.do_epi,'');
-    dlmwrite([proj.path.code,'tmp/tasks.txt'],proj.param.tasks,'');
-    dlmwrite([proj.path.code,'tmp/scans.txt'],proj.param.scans,'');
-    dlmwrite([proj.path.code,'tmp/rest_scans.txt'],proj.param.rest_scans,'');
+    dlmwrite([proj.path.code,'tmp/tr.txt'],num2str(proj.param.mri.TR),'');
+    dlmwrite([proj.path.code,'tmp/slices.txt'],proj.param.mri.slices,'');
+    dlmwrite([proj.path.code,'tmp/slice_pattern.txt'],proj.param.mri.slice_pattern,'');
+    dlmwrite([proj.path.code,'tmp/do_anat.txt'],proj.param.mri.do_anat,'');
+    dlmwrite([proj.path.code,'tmp/do_epi.txt'],proj.param.mri.do_epi,'');
+    dlmwrite([proj.path.code,'tmp/tasks.txt'],proj.param.mri.tasks,'');
+    dlmwrite([proj.path.code,'tmp/scans.txt'],proj.param.mri.scans,'');
+    dlmwrite([proj.path.code,'tmp/rest_scans.txt'],proj.param.mri.rest_scans,'');
 
     %% extract subject info
     subj_study = subjs{i}.study;

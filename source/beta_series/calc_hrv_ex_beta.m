@@ -15,10 +15,10 @@ load('proj.mat');
 %% ----------------------------------------
 %% Set-up Directory Structure for HRV
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.hrv_beta]);
-    eval(['! rm -rf ',proj.path.hrv_beta]);
-    disp(['Creating ',proj.path.hrv_beta]);
-    eval(['! mkdir ',proj.path.hrv_beta]);
+    disp(['Removing ',proj.path.physio.hrv_beta]);
+    eval(['! rm -rf ',proj.path.physio.hrv_beta]);
+    disp(['Creating ',proj.path.physio.hrv_beta]);
+    eval(['! mkdir ',proj.path.physio.hrv_beta]);
 end
 
 %% ----------------------------------------
@@ -27,8 +27,8 @@ subjs = load_subjs(proj);
 
 %% ----------------------------------------
 %% Split Designs into Run 1 and Run 2
-id_path = [proj.path.trg,'stim_ids.txt'];
-time_path = [proj.path.trg,'stim_times.1D'];
+id_path = [proj.path.trg.ex,'stim_ids.txt'];
+time_path = [proj.path.trg.ex,'stim_times.1D'];
 
 ids = load(id_path);
 N = numel(ids)/2;
@@ -41,7 +41,7 @@ save([proj.path.code,'tmp/ids2.txt'],'ids2','-ascii');
 times = load(time_path);
 N = numel(times)/2;
 times1 =times(1:N);
-times2 = times((N+1):end)-(proj.param.TR*proj.param.n_trs_id1);
+times2 = times((N+1):end)-(proj.param.mri.TR*proj.param.mri.n_trs_id1);
 save([proj.path.code,'tmp/times1.txt'],'times1','-ascii');
 save([proj.path.code,'tmp/times2.txt'],'times2','-ascii');
 
@@ -126,7 +126,7 @@ for i=1:numel(subjs)
 
     %% ----------------------------------------
     %% Save individual HRV structures
-    save([proj.path.hrv_beta,subj_study,'_',name,'_ex_betas.mat'],'ex_betas');
+    save([proj.path.physio.hrv_beta,subj_study,'_',name,'_ex_betas.mat'],'ex_betas');
 
 end
 
