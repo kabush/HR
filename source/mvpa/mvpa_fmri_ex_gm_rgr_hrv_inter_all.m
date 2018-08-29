@@ -21,7 +21,7 @@ if(proj.flag.clean_build)
     disp(['Removing ',proj.path.mvpa.hrv_all]);
     eval(['! rm -rf ',proj.path.mvpa.hrv_all]);
     disp(['Creating ',proj.path.mvpa.hrv_all]);
-    eval(['! mkdir ',proj.path.hrv_all]);
+    eval(['! mkdir ',proj.path.mvpa.hrv_all]);
 end
 
 %% ----------------------------------------

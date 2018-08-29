@@ -18,23 +18,23 @@ logger(['***********************************************************'],proj.path
 
 %% Set-up Directory Structure for fMRI betas
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.hrv_haufe_permute_thresh]);
-    eval(['! rm -rf ',proj.path.hrv_haufe_permute_thresh]);
-    disp(['Creating ',proj.path.hrv_haufe_permute_thresh]);
-    eval(['! mkdir ',proj.path.hrv_haufe_permute_thresh]);
+    disp(['Removing ',proj.path.haufe.hrv_permute_thresh]);
+    eval(['! rm -rf ',proj.path.haufe.hrv_permute_thresh]);
+    disp(['Creating ',proj.path.haufe.hrv_permute_thresh]);
+    eval(['! mkdir ',proj.path.haufe.hrv_permute_thresh]);
 end
 
 %% ----------------------------------------
 %% Load labels;
-label_id = load([proj.path.trg,'stim_ids.txt']);
-v_scores = load([proj.path.trg,'stim_v_scores.txt']);
+label_id = load([proj.path.trg.ex,'stim_ids.txt']);
+v_scores = load([proj.path.trg.ex,'stim_v_scores.txt']);
 
 %%  extract only extrinsic stimuli
-ex_ids = find(label_id==proj.param.ex_id);
+ex_ids = find(label_id==proj.param.trg.ex_id);
 
 %% prune away non-threshold stimuli
 ex_v_scores = v_scores(ex_ids);
-load([proj.path.hrv_bpm,'best_thresh.mat']);
+load([proj.path.physio.hrv_bpm,'best_thresh.mat']);
 best_thresh
 adj_v_score = ex_v_scores-mean(ex_v_scores);
 v_ids = find(abs(adj_v_score)>=best_thresh);
@@ -45,12 +45,12 @@ subjs = load_subjs(proj);
 
 %% ----------------------------------------
 %% load group HRV data
-load([proj.path.hrv_bpm,'all_bpm.mat']);
+load([proj.path.physio.hrv_bpm,'all_bpm.mat']);
  
 %% ----------------------------------------
 %% Haufe parameters
-Nboot = proj.param.permute_nperm;
-Nchunk = proj.param.haufe_chunk;
+Nboot = proj.param.haufe.npermute;
+Nchunk = proj.param.haufe.chunk;
 
 %% Storage for MVPA inputs
 all_ex_img = [];
@@ -69,14 +69,14 @@ for i = 1:numel(subjs)
     disp([subj_study,':',name]);
 
     %% Load gray matter mask 
-    gm_nii = load_nii([proj.path.gm_mask,'group_gm_mask.nii']);
+    gm_nii = load_nii([proj.path.mri.gm_mask,'group_gm_mask.nii']);
     mask = double(gm_nii.img);
     brain_size=size(mask);
     mask = reshape(mask,brain_size(1)*brain_size(2)*brain_size(3),1);
     in_brain=find(mask==1);  
 
     %% Load beta-series
-    base_nii = load_nii([proj.path.fmri_ex_beta,subj_study,'_',name,'_lss.nii']);
+    base_nii = load_nii([proj.path.betas.fmri_ex_beta,subj_study,'_',name,'_lss.nii']);
     brain_size = size(base_nii.img);
     
     %% Vectorize the base image
@@ -90,7 +90,7 @@ for i = 1:numel(subjs)
     subj_id = repmat(i,numel(v_ids),1);
     
     %% Subselect extrinsic data
-    ex_id = find(label_id==proj.param.ex_id);
+    ex_id = find(label_id==proj.param.trg.ex_id);
     ex_img = all_img(ex_id,:);
 
     %% Normalize within current subject
@@ -155,7 +155,7 @@ for j = 1:(Nboot+1)
         [out,trg,~,mdl] = regress_inter_loocv(all_ex_img(perm_ids,:), ...
                                               all_hrv_bpm(perm_ids,:), ...
                                               all_subj_i,qlty_i, ...
-                                              proj.param.mvpa_kernel);
+                                              proj.param.mvpa.kernel);
 
         %% HAUFE-TRANSFORM
         wts = zeros(1,size(all_ex_img,2));
@@ -183,8 +183,22 @@ for j = 1:(Nboot+1)
     %% ========================================
     %% Save out grp haufe info (AS WE GO)
     grp_haufe_hrv = [grp_haufe_hrv,mean(all_haufe_wts,2)];
-    save([proj.path.hrv_haufe_permute_thresh,'grp_haufe_hrv_n', ...
+    save([proj.path.haufe.hrv_permute_thresh,'grp_haufe_hrv_n', ...
           num2str(Nboot),'_j',num2str(j),'.mat'],'grp_haufe_hrv');
+
+
+
+    %% ========================================
+    %% Save out grp haufe info (AS WE GO)
+    grp_haufe_hrv = [grp_haufe_hrv,mean(all_haufe_wts,2)];
+    save([proj.path.haufe.hrv_permute_thresh,'grp_haufe_hrv_n', ...
+          num2str(Nboot),'_j',num2str(j),'.mat'],'grp_haufe_hrv');
+
+    %% delete the old file that is no longer relevant
+    if(j>1)
+        eval(['! rm ',proj.path.haufe.hrv_permute_thresh,'grp_haufe_hrv_n', ...
+              num2str(Nboot),'_j',num2str(j-1),'.mat']);
+    end
 
 end
 
@@ -229,15 +243,15 @@ end
 
 % Save out: mean encoding of group gray-matter voxels
 mu_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(row_ids,1),gm_nii,row_ids);
-save_nii(mu_hrv_haufe_nii,[proj.path.hrv_haufe_permute_thresh,'mu_hrv_haufe_n',num2str(Nboot),'.nii']);
+save_nii(mu_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_hrv_haufe_n',num2str(Nboot),'.nii']);
 
 % Save out: mean encoding of bootstrap sign. (p<0.05) group gray-matter voxels
 mu_boot_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(sig_ids_05,1),gm_nii,sig_ids_05);
-save_nii(mu_boot_hrv_haufe_nii,[proj.path.hrv_haufe_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_05.nii']);
+save_nii(mu_boot_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_05.nii']);
 
 % Save out: mean encoding of bootstrap sign. (p<0.01) group gray-matter voxels
 mu_boot_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(sig_ids_01,1),gm_nii,sig_ids_01);
-save_nii(mu_boot_hrv_haufe_nii,[proj.path.hrv_haufe_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_01.nii']);
+save_nii(mu_boot_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_01.nii']);
 % Save out: mean encoding of bootstrap sign. (p<0.001) group gray-matter voxels
 mu_boot_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(sig_ids_001,1),gm_nii,sig_ids_001);
-save_nii(mu_boot_hrv_haufe_nii,[proj.path.hrv_haufe_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_001.nii']);
+save_nii(mu_boot_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_001.nii']);

@@ -52,16 +52,17 @@ init_project;
 % %% STEP 7: Conduct MVPA for Secondary Measures
 % mvpa_fmri_ex_gm_rgr_hrv_inter_thresh % inter-subj Gray-matter
 %                                      % regression.
-mvpa_fmri_ex_gm_rgr_hrv_inter_all    % inter-subj Gray-matter
-                                     % regression.
-
-%% ------------------------------------------------------------ 
-%% STEP 12: Secondary Analysis of EX physiology (Neuropsychologia Paper)
-analyze_ex_hrv_mvpa % working DRAFT
+% mvpa_fmri_ex_gm_rgr_hrv_inter_all    % inter-subj Gray-matter
+%                                      % regression.
+% 
+% %% ------------------------------------------------------------ 
+% %% STEP 12: Secondary Analysis of EX physiology (Neuropsychologia Paper)
+% analyze_ex_hrv_mvpa % working DRAFT
 % 
 % %% ------------------------------------------------------------ 
 % %% STEP 13: Hyperplane analysis
-% % ***** haufe_ex_gm_hrv_mvpa_all_permute  % (this runs for weeks)
-% % ***** haufe_ex_gm_hrv_mvpa_thresh_permute % (this runs for days)
+% haufe_ex_gm_hrv_mvpa_thresh_permute % (this runs for days)
+haufe_ex_gm_hrv_mvpa_all_permute  % (this runs for weeks)
+
 
 toc
