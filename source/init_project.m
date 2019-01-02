@@ -10,7 +10,7 @@
 
 %% ----------------------------------------
 %% Seed random number generator
-rng(1,'twister');
+rng(11056,'twister');
 
 %% ----------------------------------------
 %% Initialize project param structure
@@ -68,7 +68,6 @@ proj.path.betas.name = 'beta_series/';
 proj.path.trg.name = 'target/';
 proj.path.mvpa.name = 'mvpa/';
 proj.path.haufe.name = 'haufe/';
-proj.path.ctrl.name = 'ctrl/';
 
 %% ----------------------------------------
 %% Specific Output Paths
@@ -200,7 +199,7 @@ proj.param.mvpa.kernel = 'linear';
 proj.param.mvpa.n_resamp = 1; % should be >= 30
 
 %% Haufe parameters
-proj.param.haufe.npermute = 5; %480
+proj.param.haufe.npermute = 480
 proj.param.haufe.chunk = 10;
 
 %% Plotting parameters

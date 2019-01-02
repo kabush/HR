@@ -247,7 +247,7 @@ scatter(thresh_vec,all_p,40,'MarkerFaceColor','b', ...
 
 hold off;
 xlabel('Threshold for Neutral Stimulus');
-ylabel('Significance of HRV Model Prediction');
+ylabel('PDV Model Prediction Significance (p-value)');
 xlim([min(thresh_vec),max(thresh_vec)]);
 fig = gcf;
 ax = fig.CurrentAxes;
@@ -306,7 +306,7 @@ xlim([min(grp_intrvs),max(grp_intrvs)]);
 ylim([min(mu_neg_trajs-ci_neg_trajs)-nudge,max(mu_pos_trajs+ci_pos_trajs)+nudge]);
 
 % Mark-up plot
-xlabel('Times since stimulus onset (s)');
+xlabel('Time since stimulus onset (s)');
 ylabel('Heartrate change from pre-stimulus (bpm)');
 fig = gcf;
 ax = fig.CurrentAxes;

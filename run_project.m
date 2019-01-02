@@ -43,7 +43,7 @@ init_project;
 % 
 % %% Physio betas (these are the targets)
 % calc_hrv_ex_beta;  % bpm trajectories | neutral filtering
-% calc_hrv_ex_bpm;  % bpm targets for mvpa
+calc_hrv_ex_bpm;  % bpm targets for mvpa
 % 
 % %% fMRI betas (these are the features)
 % calc_fmri_ex_beta;
@@ -62,7 +62,8 @@ init_project;
 % %% ------------------------------------------------------------ 
 % %% STEP 13: Hyperplane analysis
 % haufe_ex_gm_hrv_mvpa_thresh_permute % (this runs for days)
-haufe_ex_gm_hrv_mvpa_all_permute  % (this runs for weeks)
+% haufe_ex_gm_hrv_mvpa_all_permute  % (this runs for weeks)
+%%%%% haufe_tmp
 
 
 toc
