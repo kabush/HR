@@ -52,7 +52,7 @@ echo ${subjs} # debug
 
 ## Construct other paths
 set motionpth = ${homepth}/data/motion
-set studypth = ${homepth}/data/${project}/fmri_clean
+set studypth = ${homepth}/data/${project}/mri/mri_clean # *** TICKET ***
 
 echo ${motionpth}
 echo ${studypth}

@@ -81,6 +81,9 @@ proj.path.betas.fmri_in_beta = [proj.path.data,proj.path.betas.name,'fmri_in_bet
 %% HRV paths (all)
 proj.path.physio.hrv_beta = [proj.path.data,proj.path.betas.name,'hrv_beta/']; 
 proj.path.physio.hrv_bpm = [proj.path.data,proj.path.betas.name,'hrv_bpm/'];  
+proj.path.physio.hrv_kubios = [proj.path.data,proj.path.physio.name,'hrv_kubios/']; 
+proj.path.physio.hrv_kubios_output = [proj.path.data,proj.path.physio.name,'kubios_output/']; 
+proj.path.physio.hrv_kubios_reformat = [proj.path.data,proj.path.physio.name,'kubios_reformat/']; 
 
 %% Target paths (all)
 proj.path.trg.ex = [proj.path.data,proj.path.trg.name,'target_ex/'];

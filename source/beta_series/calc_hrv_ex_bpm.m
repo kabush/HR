@@ -51,7 +51,7 @@ seq_id2 = ((n_stim/2)+1):n_stim;
 %% allocate storage
 grp_trajs = zeros(n_stim,numel(proj.param.physio.hrv.intrv));
 grp_cnts = zeros(n_stim,1);
-grp_intrvs = [];
+% grp_intrvs = [];
 
 
 all_trajs = [];
@@ -84,7 +84,7 @@ for i = 1:numel(subjs)
         if(isempty(ex_betas.trajs1))
             trajs = ex_betas.trajs2;
             intrvs = ex_betas.t_intrvs2; 
-            grp_intrvs = ex_betas.t_intrvs2; 
+            % grp_intrvs = ex_betas.t_intrvs2; 
             hrv_seq = seq_id2;
             hrv_v_score = v_score(seq_id2);
         end
@@ -92,7 +92,7 @@ for i = 1:numel(subjs)
         if(isempty(ex_betas.trajs2))
             trajs = ex_betas.trajs1;
             intrvs = ex_betas.t_intrvs1; 
-            grp_intrvs = ex_betas.t_intrvs2; 
+            % grp_intrvs = ex_betas.t_intrvs2; 
             hrv_seq = seq_id1;
             hrv_v_score = v_score(seq_id1);
         end
@@ -280,13 +280,13 @@ std_neg_trajs = std(grp_neg_trajs);
 ci_pos_trajs = std_pos_trajs/sqrt(size(grp_pos_trajs,1))*1.96;
 ci_neg_trajs = std_neg_trajs/sqrt(size(grp_neg_trajs,1))*1.96;
 
-plot(grp_intrvs,mu_pos_trajs,'-b','LineWidth',3);
-plot(grp_intrvs,mu_neg_trajs,'-r','LineWidth',3);
+plot(intrvs,mu_pos_trajs,'-b','LineWidth',3);
+plot(intrvs,mu_neg_trajs,'-r','LineWidth',3);
 
-plot1 = plot(grp_intrvs,mu_pos_trajs+ci_pos_trajs,'--b','LineWidth',2);
-plot2 = plot(grp_intrvs,mu_pos_trajs-ci_pos_trajs,'--b','LineWidth',2);
-plot3 = plot(grp_intrvs,mu_neg_trajs+ci_neg_trajs,'--r','LineWidth',2);
-plot4 = plot(grp_intrvs,mu_neg_trajs-ci_neg_trajs,'--r','LineWidth',2);
+plot1 = plot(intrvs,mu_pos_trajs+ci_pos_trajs,'--b','LineWidth',2);
+plot2 = plot(intrvs,mu_pos_trajs-ci_pos_trajs,'--b','LineWidth',2);
+plot3 = plot(intrvs,mu_neg_trajs+ci_neg_trajs,'--r','LineWidth',2);
+plot4 = plot(intrvs,mu_neg_trajs-ci_neg_trajs,'--r','LineWidth',2);
 
 line_alpha_value = 0.4;
 plot1.Color(4) = line_alpha_value;
@@ -302,7 +302,7 @@ plot(0*y+2,y,':k','LineWidth',2);
 
 % Figure out axis limits
 cmb_trajs = [mu_pos_trajs+ci_pos_trajs,mu_neg_trajs-ci_neg_trajs];
-xlim([min(grp_intrvs),max(grp_intrvs)]);
+xlim([min(intrvs),max(intrvs)]);
 ylim([min(mu_neg_trajs-ci_neg_trajs)-nudge,max(mu_pos_trajs+ci_pos_trajs)+nudge]);
 
 % Mark-up plot

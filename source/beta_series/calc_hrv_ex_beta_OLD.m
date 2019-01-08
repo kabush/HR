@@ -71,10 +71,9 @@ for i=1:numel(subjs)
     %% Process Identify Run 1
 
     %% Define input/outputs paths
-    %in_path = [proj.path.raw_data,subj_study,'/', ...
-    %           proj.path.raw_physio,'/',subj_study,'_',name,'/', ...
-    %           subj_study,'_',name,'_Identify_run_1_kubios.mat'];
-    in_path = [proj.path.physio.hrv_kubios_reformat,subj_study,'_',name,'_Identify_run_1_kubios_reformat.csv'];
+    in_path = [proj.path.raw_data,subj_study,'/', ...
+               proj.path.raw_physio,'/',subj_study,'_',name,'/', ...
+               subj_study,'_',name,'_Identify_run_1.mat'];
     id_path = [proj.path.code,'tmp/ids1.txt'];
     time_path = [proj.path.code,'tmp/times1.txt'];
 
@@ -83,7 +82,7 @@ for i=1:numel(subjs)
 
     %% RUN Kayla's HRV python code (will save out to) 
     eval(['! /usr/local/miniconda/bin/python ',proj.path.code,...
-          'source/beta_series/kubios_hrv_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
+          'source/beta_series/hrv_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
 
     ex_betas.t_intrvs1 = [];
     ex_betas.trajs1 = [];
@@ -99,11 +98,9 @@ for i=1:numel(subjs)
     %% Process Identify Run 2
 
     %% Define input/outputs paths
-    %in_path = [proj.path.raw_data,subj_study,'/', ...
-    %          proj.path.raw_physio,'/',subj_study,'_',name,'/', ...
-    %           subj_study,'_',name,'_Identify_run_2_kubios.mat'];
-
-    in_path = [proj.path.physio.hrv_kubios_reformat,subj_study,'_',name,'_Identify_run_1_kubios_reformat.csv'];
+    in_path = [proj.path.raw_data,subj_study,'/', ...
+               proj.path.raw_physio,'/',subj_study,'_',name,'/', ...
+               subj_study,'_',name,'_Identify_run_2.mat'];
     id_path = [proj.path.code,'tmp/ids2.txt'];
     time_path = [proj.path.code,'tmp/times2.txt'];
 
@@ -114,7 +111,7 @@ for i=1:numel(subjs)
 
     %% RUN Kayla's HRV python code (will save out to) 
     eval(['! /usr/local/miniconda/bin/python ',proj.path.code, ...
-          'source/beta_series/kubios_hrv_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
+          'source/beta_series/hrv_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
 
 
     ex_betas.t_intrvs2 = [];
