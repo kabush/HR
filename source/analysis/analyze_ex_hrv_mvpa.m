@@ -47,12 +47,10 @@ end
 s_p_bpm_thresh = signrank(rho_bpm_thresh);
 s_p_v_thresh = signrank(rho_v_thresh);
 
-
 logger(['State effect hrv (thresh): ',...
       num2str(median(rho_bpm_thresh)),', p=',num2str(s_p_bpm_thresh)],proj.path.logfile);
 logger(['State effect v (thresh): ',...
       num2str(median(rho_v_thresh)),', p=',num2str(s_p_v_thresh)],proj.path.logfile);
-
 
 %% ----------------------------------------
 %% Analyze state predictions using all data

@@ -11,7 +11,14 @@
 %% Load in path data
 load('proj.mat');
 
-%% Create the subjects to be analyzed (possible multiple studies)
+%% Set-up Directory Structure
+if(proj.flag.clean_build)
+    disp(['Removing ',proj.path.physio.hrv_kubios_reformat]);
+    eval(['! rm -rf ',proj.path.physio.hrv_kubios_reformat]);
+    disp(['Creating ',proj.path.physio.hrv_kubios_reformat]);
+    eval(['! mkdir ',proj.path.physio.hrv_kubios_reformat]);
+end
+
 subjs = load_subjs(proj);
 disp(['Processing fMRI of ',num2str(numel(subjs)),' subjects']);
 
@@ -27,8 +34,9 @@ for i=1:numel(subjs)
 
     try
         path_id_1 = [proj.path.physio.hrv_kubios_output,subj_study, ...
-                     '_',name,'_Identify_run_1_kubios.mat'];
+                     '_',name,'_Identify_run_1_hrv.mat'];
         load(path_id_1);
+
         rr = Res.HRV.Data.T_RR;
         csvwrite([proj.path.physio.hrv_kubios_reformat,subj_study, ...
                   '_',name,'_Identify_run_1_kubios_reformat.csv'],rr);
@@ -39,8 +47,9 @@ for i=1:numel(subjs)
 
     try
         path_id_2 = [proj.path.physio.hrv_kubios_output,subj_study, ...
-                     '_',name,'_Identify_run_2_kubios.mat'];
+                     '_',name,'_Identify_run_2_hrv.mat'];
         load(path_id_2);
+
         rr = Res.HRV.Data.T_RR;
         csvwrite([proj.path.physio.hrv_kubios_reformat,subj_study, ...
                   '_',name,'_Identify_run_2_kubios_reformat.csv'],rr);

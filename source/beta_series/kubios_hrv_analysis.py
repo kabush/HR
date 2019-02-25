@@ -20,130 +20,13 @@ from scipy import signal
 from pandas import DataFrame as df
 import sys
 
-## ========================================
-## TICKET: separate hardcoded parameters and place inside
-## init_project.m
-## ========================================
-
-# def inputmat(filename):
-#
-#     # https: // stackoverflow.com / questions / 7008608 / scipy - io - loadmat - nested - structures - i - e - dictionaries
-#     # cs01 & jpapon
-#
-#     def _check_keys(dict):
-#         for key in dict:
-#             if isinstance(dict[key], io.matlab.mio5_params.mat_struct):
-#                 dict[key] = _todict(dict[key])
-#         return dict
-#
-#     def _todict(matobj):
-#         dict = {}
-#         for strg in matobj._fieldnames:
-#             elem = matobj.__dict__[strg]
-#             if isinstance(elem, io.matlab.mio5_params.mat_struct):
-#                 dict[strg] = _todict(elem)
-#             else:
-#                 dict[strg] = elem
-#         return dict
-#
-#     def _tolist(ndarray):
-#         elem_list = []
-#         for sub_elem in ndarray:
-#             if isinstance(sub_elem, io.matlab.mio5_params.mat_struct):
-#                 elem_list.append(_todict(sub_elem))
-#             elif isinstance(sub_elem, np.ndarray):
-#                 elem_list.append(_tolist(sub_elem))
-#             else:
-#                 elem_list.append(sub_elem)
-#             return elem_list
-#
-#     data = io.loadmat(filename, struct_as_record=False, squeeze_me=True)
-#     return _check_keys(data)
-
-# =================================================
-
-
 def find(a, func):
     return [i for (i, val) in enumerate(a) if func(val)]
 
-candidates = {}
-
-def get_data(in_path):
-    mat = io.loadmat(in_path)['data']
-    raw_data = pd.DataFrame(mat)
-    raw_data.to_csv('./tmp/input.csv')
-    readdata = pd.read_csv('./tmp/input.csv', usecols=[1])
-    dataarray = np.squeeze(np.asarray(readdata.as_matrix()))
-    filtered_data = butter_bandpass_filter(dataarray, .25, 5, 2000, 2)
-    clean_data = np.nan_to_num(filtered_data, copy=False)  # Change any NaN values to 0
-    dataset = pd.DataFrame(clean_data)
-    return dataset
-
-def butter_bandpass(lowcut, highcut, fs, order=5):
-    nyq = 0.5 * fs
-    low = lowcut / nyq
-    high = highcut / nyq
-    b, a = signal.butter(order, [low, high], btype='band')
-    return b, a
-
-def butter_bandpass_filter(data, lowcutoff, highcutoff, fs, order):
-    b, a = butter_bandpass(lowcutoff, highcutoff, fs, order)
-    y = signal.filtfilt(b, a, data)
-    return y
-
-def detect_peaks(dataset, Hz):  # Mark regions of interest
-
-    peaklist = []
-    data = np.asarray(dataset) #.hr)
-    p_range = .2
-
-    for i in range(1, len(data)-1): ##### Check with Keith on this fix ########
-        if data[i] > (data[i - 1]) and data[i] > (data[i + 1]):
-            left_ind = int(max(0, i - p_range * Hz))
-            right_ind = int(min(len(data -1), i + p_range * Hz))
-
-            left_mu = np.mean(data[range(left_ind, i - 1)])
-            right_mu = np.mean(data[range(i + 1, right_ind)])
-
-            if data[i] > left_mu and data[i] > right_mu:
-                peaklist.append(i)
-    candidates['peaklist'] = peaklist
-
-def detect_beats(dataset, Hz):
-    min_int = .4 * Hz
-    peaks = candidates['peaklist']
-    beatlist= [peaks[0]]
-    beati = 0
-    for i in range(1, len(peaks)):
-        beat = beatlist[beati]
-        nextpeak = peaks[i]
-        if (nextpeak - beat) > min_int:
-            beatlist.append(nextpeak)
-            beati += 1
-    candidates['beatlist'] = beatlist
 
 def calc_hrvs(in_path, input_ids_path, input_times_path, out_path):
 
-    # # 1) load rest file
-    # raw_hr = get_data(in_path)
-    #
-    # # 2) reduce length to scan (vols*TR*Hz)
-    # vols = 282
-    # TR = 2
-    # Hz = 2000
-    # cut_hr = df(raw_hr[0:vols * TR * Hz])
-    #
-    # # 3) find beat array indicess
-    # detect_peaks(cut_hr, Hz)
-    # detect_beats(cut_hr, Hz)
-    # beat_ids = df(candidates['beatlist'])  # in units of 2000 Hz
-    #
-    # # 4) convert array indices to times (s)
-    # beat_times = beat_ids / Hz  # in units of seconds
-
-    # kubios_hr = inputmat(in_path)
-
-    # import kubios file
+    #import kubios file
     beat_times = pd.read_csv(in_path)
 
     vols = 282
@@ -153,35 +36,35 @@ def calc_hrvs(in_path, input_ids_path, input_times_path, out_path):
     # cut kubios file to length of scan
     beat_times = df(beat_times[0:vols * TR * Hz])
 
-    # 5) load in stim times file
+    # load in stim times file
     all_stim_times = pd.read_csv(input_times_path, header=None)  # units of seconds
 
-    # 6) load in stim ids file
+    # load in stim ids file
     stim_ids = pd.read_csv(input_ids_path, header=None)
 
-    # 7) find the ids of image presentations
+    # find the ids of image presentations
     ex_ids = np.where(stim_ids == 1)[0]
     next_ids = ex_ids + 1
 
-    # 8) find the times of images presentations
+    # find the times of images presentations
     ex_times = np.array(all_stim_times)[ex_ids[0:45]]
 
-    # 9) find the times of the end of the ITI after image presentation
+    # find the times of the end of the ITI after image presentation
     next_times = np.array(all_stim_times)[next_ids[0:44]]
     last_time = np.array(ex_times[44] + 8)  # use max possible length for last stimulus
     next_times = np.vstack((next_times, last_time))
 
-    # 10) create a matrix of ranges = [ex_times, next_times] where each row is a range of time
+    # create a matrix of ranges = [ex_times, next_times] where each row is a range of time
     times = np.hstack((ex_times, next_times))
 
     # debug...put back in dataframe format to make the syntax work
     times_matrix = df(times, index=list(range(len(times))))
 
-    # 14) for ex_times -1 find beat and beat before that beat, get the mean, & save
-    # 15) for ex_times to ex_times + 3 find beats and the beat before ex_times,
-    #     subtract mu_ibi, & find minimum
-    # 16) for next_times - 3 to next_times find beats, subtract mu_ibi, & find maximum
-    # 17) save max_dec & min_acc
+    # for ex_times -1 find beat and beat before that beat, get the mean, & save
+    # for ex_times to ex_times + 3 find beats and the beat before ex_times,
+    # subtract mu_ibi, & find minimum
+    # for next_times - 3 to next_times find beats, subtract mu_ibi, & find maximum
+    # save max_dec & min_acc
 
     # debug ... convert array of arrays to array of values
     beat_times_array = np.squeeze(np.asarray(beat_times.as_matrix()))
@@ -358,11 +241,6 @@ in_path = sys.argv[1]
 input_ids_path = sys.argv[2]
 input_times_path = sys.argv[3]
 out_path = sys.argv[4]
-
-# in_path = '/home/kwilson/test/INCA_006_Identify_run_1.mat'
-# input_ids_path = '/home/kwilson/test/stim_ids.txt'
-# input_times_path = '/home/kwilson/test/stim_times.1D'
-# out_path = '/home/kwilson/test'
 
 # Execute
 calc_hrvs(in_path, input_ids_path, input_times_path, out_path)

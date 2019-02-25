@@ -58,9 +58,4 @@ for i=1:numel(subjs)
 
     end
 
-
-
-
-
-
 end

@@ -14,8 +14,6 @@
 %% in line with 
 %%
 %%
-
-
 %% Load in path data
 load('proj.mat');
 
@@ -160,7 +158,6 @@ for i=1:numel(thresh_seq)
     grp_pos_trajs = grp_trajs(pos_ids,:);
     grp_neg_trajs = grp_trajs(neg_ids,:);
 
-
     all_mu_grp_rnd_pos_trajs = [];
     all_mu_grp_rnd_neg_trajs = [];
 
@@ -210,11 +207,29 @@ neg_ids = find((v_score-mu)<-best_thresh);
 grp_pos_trajs = grp_trajs(pos_ids,:);
 grp_neg_trajs = grp_trajs(neg_ids,:);
 
-%% Find minimum of negative stim deceleration
-%% This is the new end point
-mu_grp_neg_trajs = mean(grp_neg_trajs);
-min_id = find(mu_grp_neg_trajs==min(mu_grp_neg_trajs));
-fit_seq = 1:min_id;
+all_mu_grp_rnd_pos_trajs = [];
+all_mu_grp_rnd_neg_trajs = [];
+
+for j=1:Nsample
+    
+    % randomly subsample
+    pos_rnd_ids = randsample(1:numel(pos_ids),numel(pos_ids)-1);
+    neg_rnd_ids = randsample(1:numel(neg_ids),numel(neg_ids)-1);
+    
+    grp_rnd_pos_trajs = grp_pos_trajs(pos_rnd_ids,:);
+    grp_rnd_neg_trajs = grp_neg_trajs(neg_rnd_ids,:);
+    
+    all_mu_grp_rnd_pos_trajs = [all_mu_grp_rnd_pos_trajs;mean(grp_rnd_pos_trajs)];
+    all_mu_grp_rnd_neg_trajs = [all_mu_grp_rnd_neg_trajs;mean(grp_rnd_neg_trajs)];
+    
+end
+
+%% calcuate mean trajs over resampling
+mu_rnd_pos_trajs = mean(all_mu_grp_rnd_pos_trajs);
+mu_rnd_neg_trajs = mean(all_mu_grp_rnd_neg_trajs);
+
+%% find min of neg
+min_id = find(mu_rnd_neg_trajs==min(mu_rnd_neg_trajs));
 
 %% Save out minimum values
 pos_bpm = grp_pos_trajs(:,min_id);
@@ -247,7 +262,7 @@ scatter(thresh_vec,all_p,40,'MarkerFaceColor','b', ...
 
 hold off;
 xlabel('Threshold for Neutral Stimulus');
-ylabel('PDV Model Prediction Significance (p-value)');
+ylabel('HR Change Prediction Significance (p-value)');
 xlim([min(thresh_vec),max(thresh_vec)]);
 fig = gcf;
 ax = fig.CurrentAxes;
@@ -256,7 +271,6 @@ ax.FontSize = proj.param.plot.axisLabelFontSize;
 % export hi-resolution figure
 export_fig 'plot_hrv_thresh_significance.png' -r300  
 eval(['! mv ',proj.path.code,'plot_hrv_thresh_significance.png ',proj.path.fig]);
-
 
 % ----------------------------------------
 % This is an extremely complex figure designed
@@ -270,7 +284,6 @@ set(gcf,'color','w');
 x = linspace(proj.param.physio.hrv.intrv(1),proj.param.physio.hrv.intrv(end));
 plot(x,0*x,'-k','LineWidth',2);
 hold on;
-
 
 % Plot grp mean trajectories for reference
 mu_pos_trajs = mean(grp_pos_trajs);
@@ -307,7 +320,7 @@ ylim([min(mu_neg_trajs-ci_neg_trajs)-nudge,max(mu_pos_trajs+ci_pos_trajs)+nudge]
 
 % Mark-up plot
 xlabel('Time since stimulus onset (s)');
-ylabel('Heartrate change from pre-stimulus (bpm)');
+ylabel('HR change from pre-stimulus (bpm)');
 fig = gcf;
 ax = fig.CurrentAxes;
 ax.FontSize = proj.param.plot.axisLabelFontSize;
@@ -369,6 +382,10 @@ for subj=1:numel(subj_i);
 
 
 end
+
+disp('*****************DEBUG****************');
+cv_rho_all
+cv_rho_thresh
 
 save([proj.path.physio.hrv_bpm,'cv_rho_all.mat'],'cv_rho_all');
 save([proj.path.physio.hrv_bpm,'cv_rho_thresh.mat'],'cv_rho_thresh');
