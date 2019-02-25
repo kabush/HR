@@ -1,0 +1,7 @@
+Removing /home/kabush/workspace/data/HRV/beta_series/hrv_bpm/
+Creating /home/kabush/workspace/data/HRV/beta_series/hrv_bpm/
+************************************************
+Inter-subject LOOCV MVPA RGR GM Features -> HRVs
+************************************************
+CTM_001, bpm(rho)=0.22178, v(rho)=0.31999
+CTM_003, bpm(rho)=-0.061358, v(rho)=0.55137

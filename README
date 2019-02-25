@@ -11,8 +11,8 @@
     OTHER CONTRIBUTORS:
 # ----------------------------------------
 # ----------------------------------------
-Kayla Wilson (2018)
-    heart rate variability
+Kayla Wilson (2018-2019)
+    heart rate change analysis
 
 # ----------------------------------------
 # ----------------------------------------
@@ -20,13 +20,17 @@ Kayla Wilson (2018)
 # ----------------------------------------
 # ----------------------------------------
 
-The project is the processing and analysis pipeline used to conduct a
-secondary analysis of physiological measures of affect processing as
-part of the NSF Cognitive Neuroscience project titled "Cognitive
-Control Theoretic Mechanisms of Real-time fMRI-guided Neuromodulation
-(Award# BCS-1735820). For award details, see:
+This project is the processing and analysis pipeline used to conduct a
+secondary analysis of heart rate physiological measures of affect
+processing as part of the NSF Cognitive Neuroscience project titled
+"Cognitive Control Theoretic Mechanisms of Real-time fMRI-guided
+Neuromodulation (Award# BCS-1735820). For award details, see:
 
 https://www.nsf.gov/awardsearch/showAward?AWD_ID=1735820
+
+WARNING: The methodological steps of this project will be migrated to:
+https://github.com/kabush/IN for permanent hosting and maintenance
+upon the conclusion of this project's NSF funding (ca. 2020).
 
 # ----------------------------------------
 # ----------------------------------------
@@ -36,14 +40,13 @@ https://www.nsf.gov/awardsearch/showAward?AWD_ID=1735820
 
 The purpose of this code is to perform the following tasks:
 
-1) Preprocess fMRI, psychophysiological, and cognitive-behaviorial
-data for the project using best practices (and document literature of
-each step).
+1) Preprocess fMRI and psychophysiological (HR) for the project using
+best practices (and document literature of each step).
 
-2) Construct beta-series (Rissma, 2004) features for each data type
-where relevant (fMRI & HRV)
+2) Construct beta-series (Rissman, 2004) features for each data type
+where relevant (fMRI & HR change)
 
-3) Predict cognitive (i.e., emotion) and physiological (i.e., HRV
+3) Predict cognitive (i.e., emotion) and physiological (i.e., HR change
 betas) via fMRI-derived whole-brain beta features to identify the
 "plant" of the control system. For the purposes of this project, we
 define the plant as the functional neuranatomical activations encoding
@@ -51,7 +54,7 @@ the valence dimension of affect according to the circumplex model of
 emotion.  Beta-series of fMRI are referred to (pseudocorrectly) as
 brain states.
 
-5) Identify functional neuranatomical descriptions of affect
+4) Identify functional neuranatomical descriptions of affect
 processing (including neural predictors of physiological signals).
 
 # ----------------------------------------
@@ -60,9 +63,9 @@ processing (including neural predictors of physiological signals).
 # ----------------------------------------
 # ----------------------------------------
 
-**************
-*** TICKET ***
-**************
+WARNING: The methodological steps of this project will be maid
+publicly available upon the conclusion of this project's NSF funding
+(ca. 2020).
 
 # ----------------------------------------
 # ----------------------------------------
@@ -139,8 +142,6 @@ python (2.7)
     - matplotlib
     - pandas
 
-
-
 # ----------------------------------------
 # ----------------------------------------
     REQUIRED LIBRARIES
@@ -152,24 +153,6 @@ kablab
 
 export_fig
     https://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig
-
-# ----------------------------------------
-# ----------------------------------------
-    COMMITMENT TO OPEN SCIENCE
-# ----------------------------------------
-# ----------------------------------------
-
-This project is commited to transparency and openscience
-principles. Currently the project's codebase is largely written in
-Matlab, csh,and AFNI (with a small set of functions writen in Python
-2.7). A core goal of this project is to migrate the code base entirely
-to a freely available language (~ Python 3).
-
-# ----------------------------------------
-# ----------------------------------------
-    REFERENCES
-# ----------------------------------------
-# ----------------------------------------
 
 
 

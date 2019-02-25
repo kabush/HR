@@ -22,16 +22,16 @@ addpath(genpath('./source/'));
 %% STEP 1: Initialize the projects directories and parameters.
 init_project;
 
-% %% ------------------------------------------------------------
-% %% STEP 2: Clear and reconstruct the project data folder
-% clean_project;
-% 
-% %% ------------------------------------------------------------
-% %% STEP 3: Preprocess raw data (wrangling, filtering, formatting)
-% 
-% % fMRI data
-% preprocess_fmri;
-% preprocess_mask;
+%% ------------------------------------------------------------
+%% STEP 2: Clear and reconstruct the project data folder
+clean_project;
+
+%% ------------------------------------------------------------
+%% STEP 3: Preprocess raw data (wrangling, filtering, formatting)
+
+% fMRI data
+preprocess_fmri;
+preprocess_mask;
 % 
 % % HRV data (convert to csv for use in Kubios software)
 % preprocess_hrv_csv;
