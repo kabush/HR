@@ -70,10 +70,10 @@ mvpa_fmri_ex_gm_rgr_hrv_inter_all;    % inter-subj Gray-matter
 %% ------------------------------------------------------------ 
 %% STEP 12: Secondary Analysis of EX physiology (Neuropsychologia Paper)
 analyze_ex_hrv_mvpa;
-% 
-% %% ------------------------------------------------------------ 
-% %% STEP 13: Hyperplane analysis
-% haufe_ex_gm_hrv_mvpa_all_permute;
+
+%% ------------------------------------------------------------ 
+%% STEP 13: Hyperplane analysis
+haufe_ex_gm_hrv_mvpa_all_permute;
 
 
 toc
