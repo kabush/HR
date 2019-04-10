@@ -24,6 +24,9 @@ addpath(genpath(proj.path.kablab));
 proj.path.export_fig = '/home/kabush/lib/export_fig/'
 addpath(genpath(proj.path.export_fig));
 
+proj.path.notboxplot = '/home/kabush/lib/noboxplot/'
+addpath(genpath(proj.path.notboxplot));
+
 %% ----------------------------------------
 %% Project Flag Definitions
 proj.flag.clean_build = 1;
@@ -99,6 +102,7 @@ proj.path.mvpa.hrv_all = [proj.path.data,proj.path.mvpa.name,'hrv_all/'];
 % proj.path.hrv_haufe_all = [proj.path.data,'hrv_haufe_all/'];  
 proj.path.haufe.hrv_permute_thresh = [proj.path.data,proj.path.haufe.name,'hrv_permute_thresh/'];  
 proj.path.haufe.hrv_permute_all = [proj.path.data,proj.path.haufe.name,'hrv_permute_all/'];  
+proj.path.haufe.cosine = [proj.path.data,proj.path.haufe.name,'cosine/'];  
 
 % %% MVPA path
 % proj.path.mvpa_fmri_ex_gs_cls = [proj.path.data,'mvpa_fmri_ex_gs_cls/'];

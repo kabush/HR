@@ -71,7 +71,7 @@ for i = 1:numel(subjs)
     %% Load beta-series
     base_nii = load_nii([proj.path.betas.fmri_ex_beta,subj_study,'_',name,'_lss.nii']);
     brain_size = size(base_nii.img);
-    
+   
     %% Vectorize the base image
     base_img = vec_img_2d_nii(base_nii);
     base_img = reshape(base_img,brain_size(1)*brain_size(2)*brain_size(3),brain_size(4));
