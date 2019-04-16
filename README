@@ -73,7 +73,7 @@ a public repository upon the conclusion of this project's NSF funding
 # ----------------------------------------
 # ----------------------------------------
 
-/HRV
+/HR
     run_project.m  # the master script which sequentially
     		   # calls all supporting scripts.  If the
 	      	   # project executes correctly then the 
