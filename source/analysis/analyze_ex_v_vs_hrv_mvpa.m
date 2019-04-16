@@ -158,7 +158,7 @@ load('proj.mat');
 % save([proj.path.haufe.cosine,'vbpm_cosTheta.mat'],'vbpm_cosTheta');
 
 
-%% PLOTTING
+%% Gathering all the pre-computed similiarities
 load([proj.path.haufe.cosine,'vv_cosTheta.mat']);
 load([proj.path.haufe.cosine,'vbpm_cosTheta.mat']);
 load([proj.path.haufe.cosine,'bpmbpm_cosTheta.mat']);
@@ -168,10 +168,53 @@ mu_vbpm = mean(vbpm_cosTheta,2);
 mu_bpmbpm = mean(bpmbpm_cosTheta,2);
 
 
-cosim_all = [mu_vv,mu_vbpm,mu_bpmbpm];
-cosim_types = [repmat(0.75,1,numel(mu_vv));
-               repmat(2,1,numel(mu_vbpm));
-               repmat(3.25,1,numel(mu_bpmbpm))]';
+cosim_all = [mu_vv',mu_bpmbpm',mu_vbpm'];
+cosim_types = [repmat(0.5,1,numel(mu_vv)),repmat(2,1,numel(mu_bpmbpm)),repmat(3.5,1,numel(mu_vbpm))];
 
-h = notBoxPlot(cosim_all,'jitter',0.7);
+%% PLOTTING
+figure(1)
+set(gcf,'color','w');
+
+h = notBoxPlot(cosim_all,cosim_types,'jitter',0.8); %,'MarkerSize',5);
+xticklabels({'v vs v','\Delta vs \Delta','v vs \Delta'});
+
+fig = gcf;
+ax = fig.CurrentAxes;
+ax.FontSize = proj.param.plot.axisLabelFontSize;
+ylabel('Encoding Cosine Similarity');
+xlabel('Encoding Comparison');
+
+export_fig 'hyperplane_boxplot.png' -r600
+eval(['! mv ',proj.path.code,'hyperplane_boxplot.png ',proj.path.fig]);
+
+%% Statistics output
+
+%% V vs V
+disp(['median V vs V: ',num2str(median(mu_vv))]);
+disp(['p=',num2str(signrank(mu_vv))]);
+disp('');
+
+%% V vs HR change
+disp(['median V vs delta HR: ',num2str(median(mu_vbpm))]);
+disp(['p=',num2str(signrank(mu_vbpm))]);
+disp('');
+
+%% HR change vs HR change
+disp(['median delta HR vs delta HR: ',num2str(median(mu_bpmbpm))]);
+disp(['p=',num2str(signrank(mu_bpmbpm))]);
+disp('');
+
+%% V vs V (vs) HR vs HR
+disp(['median V vs V (vs) HR vs HR, p=',num2str(ranksum(mu_vv,mu_bpmbpm))]);
+disp('');
+
+%% V vs V (vs) V vs HR
+disp(['median V vs V (vs) V vs HR, p=',num2str(ranksum(mu_vv,mu_vbpm))]);
+disp('');
+
+%% V vs HR (vs) HR vs HR
+disp(['median V vs HR (vs) HR vs HR, p=',num2str(ranksum(mu_vbpm,mu_bpmbpm))]);
+disp('');
+
+
 
