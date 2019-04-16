@@ -124,7 +124,7 @@ a public repository upon the conclusion of this project's NSF funding
 
 # ----------------------------------------
 # ----------------------------------------
-    REQUIRED TOOLS
+    REQUIRED SOFTWARE
 # ----------------------------------------
 # ----------------------------------------
 
@@ -144,7 +144,7 @@ python (2.7)
 
 # ----------------------------------------
 # ----------------------------------------
-    REQUIRED LIBRARIES
+    REQUIRED MATLAB LIBRARIES
 # ----------------------------------------
 # ----------------------------------------
 
@@ -154,5 +154,5 @@ kablab
 export_fig
     https://www.mathworks.com/matlabcentral/fileexchange/23629-export-fig
 
-
-
+notBoxPlot
+    https://www.mathworks.com/matlabcentral/fileexchange/26508-notboxplot
