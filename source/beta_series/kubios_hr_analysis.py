@@ -6,7 +6,7 @@
 ##  Brain Imaging Research Center (BIRC)
 ##
 ##  Contribution: Keith A. Bush, Ph.D.
-##      - hrv trajectory logic mofications
+##      - hr trajectory logic mofications
 ##
 ## ========================================
 ## ========================================
@@ -109,9 +109,9 @@ def calc_hrvs(in_path, input_ids_path, input_times_path, out_path):
         # add additional pre-interval beat to allow for ITI calcs in range
         id_pre = find(beat_times_array, lambda x: x == before_beats[0])
 
-        print row.iloc[0], row.iloc[1]
-        print before_beats
-        print id_pre
+        print(row.iloc[0], row.iloc[1])
+        print(before_beats)
+        print(id_pre)
 
         pretime = beat_times_array[id_pre[0] - 1]
         before_beats.insert(0, pretime)
@@ -139,10 +139,10 @@ def calc_hrvs(in_path, input_ids_path, input_times_path, out_path):
         # compute HR trajectory post-stimulus
         intrv_bps = []
 
-        print '************************************************'
-        print '*** STARTING STIM ***'
-        print dec_ibi
-        print after_offsets
+        print('************************************************')
+        print('*** STARTING STIM ***')
+        print(dec_ibi)
+        print(after_offsets)
 
         for j in range(len(t_intrvs)):
 
@@ -178,10 +178,10 @@ def calc_hrvs(in_path, input_ids_path, input_times_path, out_path):
                     ibi_grp.append(ibi)
                     flag = flag + 1
 
-            print '**************************'
-            print intrv
-            print off_grp
-            print ibi_grp
+            print('**************************')
+            print(intrv)
+            print(off_grp)
+            print(ibi_grp)
 
             # compute the wtd avg of beats-per-second in range of this interval
             # requires coverting ibis (in seconds) to beats-per-second (bps).
@@ -192,13 +192,13 @@ def calc_hrvs(in_path, input_ids_path, input_times_path, out_path):
                 bps = 1/ibi #convert ibi to bps
                 off = off_grp[k]
 
-                print '------------'
-                print off
+                print('------------')
+                print(off)
 
                 ## if the ibi is first in range then interval
                 ## is start of range up to this offset
                 if k == 0:
-                    print 'first element'
+                    print('first element')
                     frac = (off - intrv_min) / intrv_width
 
                 else:
@@ -206,22 +206,22 @@ def calc_hrvs(in_path, input_ids_path, input_times_path, out_path):
                     # if the beat is past end of range then interval
                     # is only last beat up to end of range
                     if off > intrv_max:
-                        print 'past max intrv'
+                        print('past max intrv')
                         frac = (intrv_max - off_grp[k - 1]) / intrv_width
 
                     # if the beat is in range then interval is
                     # the start of the range upto that beat
                     else:
-                        print 'within intrv not first'
+                        print('within intrv not first')
                         frac = (off - off_grp[k - 1]) / intrv_width
 
-                print frac
-                print ibi
+                print(frac)
+                print(ibi)
                 wtd_bps = wtd_bps + frac * bps;
 
             intrv_bps.append(wtd_bps)
 
-        print intrv_bps
+        print(intrv_bps)
 
         # scale this trajectory of ibis
         intrv_bps_norm = intrv_bps - mu_bps

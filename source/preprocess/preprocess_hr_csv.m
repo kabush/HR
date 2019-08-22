@@ -13,10 +13,10 @@ load('proj.mat');
 
 %% Set-up Directory Structure
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.physio.hrv_kubios]);
-    eval(['! rm -rf ',proj.path.physio.hrv_kubios]);
-    disp(['Creating ',proj.path.physio.hrv_kubios]);
-    eval(['! mkdir ',proj.path.physio.hrv_kubios]);
+    disp(['Removing ',proj.path.physio.hr_kubios]);
+    eval(['! rm -rf ',proj.path.physio.hr_kubios]);
+    disp(['Creating ',proj.path.physio.hr_kubios]);
+    eval(['! mkdir ',proj.path.physio.hr_kubios]);
 end
 
 %% Create the subjects to be analyzed (possible multiple studies)
@@ -38,11 +38,11 @@ for i=1:numel(subjs)
                      subj_study,'_',name,'/',subj_study,'_',name, ...
                      '_Identify_run_1.mat'];
         load(path_id_1);
-        hrv = data(:,1);
-        csvwrite([proj.path.physio.hrv_kubios,subj_study,'_',name,'_Identify_run_1.csv'],hrv);
+        hr = data(:,1);
+        csvwrite([proj.path.physio.hr_kubios,subj_study,'_',name,'_Identify_run_1.csv'],hr);
 
     catch
-        disp('could not load HRV files for Identify run 1');
+        disp('could not load HR files for Identify run 1');
     end
 
 
@@ -51,10 +51,10 @@ for i=1:numel(subjs)
                      subj_study,'_',name,'/',subj_study,'_',name, ...
                      '_Identify_run_2.mat'];
         load(path_id_2);
-        hrv = data(:,1);
-        csvwrite([proj.path.physio.hrv_kubios,subj_study,'_',name,'_Identify_run_2.csv'],hrv);
+        hr = data(:,1);
+        csvwrite([proj.path.physio.hr_kubios,subj_study,'_',name,'_Identify_run_2.csv'],hr);
     catch
-        disp('could not load HRV files for Identify run 2');
+        disp('could not load HR files for Identify run 2');
 
     end
 

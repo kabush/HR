@@ -13,15 +13,15 @@ load('proj.mat');
 
 %% Initialize log section
 logger(['***********************************************************'],proj.path.logfile);
-logger([' Permutation tested Haufe transform of HRV BPM hyperplanes '],proj.path.logfile);
+logger([' Permutation tested Haufe transform of HR BPM hyperplanes '],proj.path.logfile);
 logger(['***********************************************************'],proj.path.logfile);
 
 %% Set-up Directory Structure for fMRI betas
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.haufe.hrv_permute_thresh]);
-    eval(['! rm -rf ',proj.path.haufe.hrv_permute_thresh]);
-    disp(['Creating ',proj.path.haufe.hrv_permute_thresh]);
-    eval(['! mkdir ',proj.path.haufe.hrv_permute_thresh]);
+    disp(['Removing ',proj.path.haufe.hr_permute_all]);
+    eval(['! rm -rf ',proj.path.haufe.hr_permute_all]);
+    disp(['Creating ',proj.path.haufe.hr_permute_all]);
+    eval(['! mkdir ',proj.path.haufe.hr_permute_all]);
 end
 
 %% ----------------------------------------
@@ -32,20 +32,13 @@ v_scores = load([proj.path.trg.ex,'stim_v_scores.txt']);
 %%  extract only extrinsic stimuli
 ex_ids = find(label_id==proj.param.trg.ex_id);
 
-%% prune away non-threshold stimuli
-ex_v_scores = v_scores(ex_ids);
-load([proj.path.physio.hrv_bpm,'best_thresh.mat']);
-best_thresh
-adj_v_score = ex_v_scores-mean(ex_v_scores);
-v_ids = find(abs(adj_v_score)>=best_thresh);
-
 %% ----------------------------------------
 %% load subjs
 subjs = load_subjs(proj);
 
 %% ----------------------------------------
-%% load group HRV data
-load([proj.path.physio.hrv_bpm,'all_bpm.mat']);
+%% load group HR data
+load([proj.path.physio.hr_bpm,'all_bpm.mat']);
  
 %% ----------------------------------------
 %% Haufe parameters
@@ -54,7 +47,7 @@ Nchunk = proj.param.haufe.chunk;
 
 %% Storage for MVPA inputs
 all_ex_img = [];
-all_hrv_bpm = [];
+all_hr_bpm = [];
 all_subj_i = [];
 all_qlty_i = [];
 
@@ -78,7 +71,7 @@ for i = 1:numel(subjs)
     %% Load beta-series
     base_nii = load_nii([proj.path.betas.fmri_ex_beta,subj_study,'_',name,'_lss.nii']);
     brain_size = size(base_nii.img);
-    
+   
     %% Vectorize the base image
     base_img = vec_img_2d_nii(base_nii);
     base_img = reshape(base_img,brain_size(1)*brain_size(2)*brain_size(3),brain_size(4));
@@ -87,7 +80,7 @@ for i = 1:numel(subjs)
     all_img = base_img(in_brain,:)';
     
     %% Concatenate all label/subj identifiers
-    subj_id = repmat(i,numel(v_ids),1);
+    subj_id = repmat(i,numel(all_bpm),1);
     
     %% Subselect extrinsic data
     ex_id = find(label_id==proj.param.trg.ex_id);
@@ -103,8 +96,8 @@ for i = 1:numel(subjs)
         
         %% ----------------------------------------
         %% Build Inter-subjec structures
-        all_ex_img = [all_ex_img;ex_img(v_ids,:)];
-        all_hrv_bpm = [all_hrv_bpm;all_bpm(v_ids)];
+        all_ex_img = [all_ex_img;ex_img];
+        all_hr_bpm = [all_hr_bpm;all_bpm];
         all_subj_i = [all_subj_i;subj_id];
         all_qlty_i = [all_qlty_i;i];
         
@@ -112,14 +105,14 @@ for i = 1:numel(subjs)
 
 end
 
-grp_haufe_hrv = [];
+grp_haufe_hr = [];
 
 for j = 1:(Nboot+1)
 
     %% randomly permute the order of ex_ids the same way for
     %% all subjects in inter-subject prediction
-    seed_rnd_ids = randsample(1:numel(v_ids),numel(v_ids))';;
-    seed_ids = (1:numel(v_ids))';
+    seed_rnd_ids = randsample(1:numel(ex_ids),numel(ex_ids))';
+    seed_ids = 1:numel(ex_ids)';
     perm_ids = [];
 
     cnt = 1;
@@ -127,9 +120,9 @@ for j = 1:(Nboot+1)
 
         %% First iteration is correct; others are random
         if j>1
-            this_ids = numel(v_ids)*(cnt-1)+seed_rnd_ids;            
+            this_ids = numel(ex_ids)*(cnt-1)+seed_rnd_ids;            
         else
-            this_ids = numel(v_ids)*(cnt-1)+seed_ids;
+            this_ids = numel(ex_ids)*(cnt-1)+seed_ids;
         end
         perm_ids = [perm_ids;this_ids];
         cnt = cnt+1;
@@ -151,9 +144,9 @@ for j = 1:(Nboot+1)
         name = subjs{qlty_i}.name;
         disp(['n=',num2str(j),':',subj_study,':',name]);
 
-        %% predict HRV (restricted data)
+        %% predict HR (restricted data)
         [out,trg,~,mdl] = regress_inter_loocv(all_ex_img(perm_ids,:), ...
-                                              all_hrv_bpm(perm_ids,:), ...
+                                              all_hr_bpm(perm_ids,:), ...
                                               all_subj_i,qlty_i, ...
                                               proj.param.mvpa.kernel);
 
@@ -176,31 +169,24 @@ for j = 1:(Nboot+1)
 
     end
 
-    %% Group hrv Haufe
+    %% Group HR Haufe
     ahf_sum = sum(all_haufe_mask,2);
     row_ids = find(ahf_sum>numel(all_qlty_i)/2);
 
     %% ========================================
     %% Save out grp haufe info (AS WE GO)
-    grp_haufe_hrv = [grp_haufe_hrv,mean(all_haufe_wts,2)];
-    save([proj.path.haufe.hrv_permute_thresh,'grp_haufe_hrv_n', ...
-          num2str(Nboot),'_j',num2str(j),'.mat'],'grp_haufe_hrv');
-
-
-
-    %% ========================================
-    %% Save out grp haufe info (AS WE GO)
-    grp_haufe_hrv = [grp_haufe_hrv,mean(all_haufe_wts,2)];
-    save([proj.path.haufe.hrv_permute_thresh,'grp_haufe_hrv_n', ...
-          num2str(Nboot),'_j',num2str(j),'.mat'],'grp_haufe_hrv');
+    grp_haufe_hr = [grp_haufe_hr,mean(all_haufe_wts,2)];
+    save([proj.path.haufe.hr_permute_all,'grp_haufe_hr_n', ...
+          num2str(Nboot),'_j',num2str(j),'.mat'],'grp_haufe_hr');
 
     %% delete the old file that is no longer relevant
     if(j>1)
-        eval(['! rm ',proj.path.haufe.hrv_permute_thresh,'grp_haufe_hrv_n', ...
+        eval(['! rm ',proj.path.haufe.hr_permute_all,'grp_haufe_hr_n', ...
               num2str(Nboot),'_j',num2str(j-1),'.mat']);
     end
 
 end
+
 
 %% ========================================
 %% Find Bootstrap Significance Voxels
@@ -219,10 +205,10 @@ for j=1:numel(row_ids);
     % ----------------------------------------
     % Count extrem random samples
     Next = 0;
-    if(grp_haufe_hrv(row_ids(j),1)>0)
-        Next = numel(find(grp_haufe_hrv(row_ids(j),2:end)>grp_haufe_hrv(row_ids(j),1)));
+    if(grp_haufe_hr(row_ids(j),1)>0)
+        Next = numel(find(grp_haufe_hr(row_ids(j),2:end)>grp_haufe_hr(row_ids(j),1)));
     else
-        Next = numel(find(grp_haufe_hrv(row_ids(j),2:end)<grp_haufe_hrv(row_ids(j),1)));
+        Next = numel(find(grp_haufe_hr(row_ids(j),2:end)<grp_haufe_hr(row_ids(j),1)));
     end
 
     % ----------------------------------------
@@ -242,16 +228,16 @@ for j=1:numel(row_ids);
 end
 
 % Save out: mean encoding of group gray-matter voxels
-mu_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(row_ids,1),gm_nii,row_ids);
-save_nii(mu_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_hrv_haufe_n',num2str(Nboot),'.nii']);
+mu_hr_haufe_nii = build_nii_from_gm_mask(grp_haufe_hr(row_ids,1),gm_nii,row_ids);
+save_nii(mu_hr_haufe_nii,[proj.path.haufe.hr_permute_all,'mu_hr_haufe_n',num2str(Nboot),'.nii']);
 
 % Save out: mean encoding of bootstrap sign. (p<0.05) group gray-matter voxels
-mu_boot_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(sig_ids_05,1),gm_nii,sig_ids_05);
-save_nii(mu_boot_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_05.nii']);
+mu_boot_hr_haufe_nii = build_nii_from_gm_mask(grp_haufe_hr(sig_ids_05,1),gm_nii,sig_ids_05);
+save_nii(mu_boot_hr_haufe_nii,[proj.path.haufe.hr_permute_all,'mu_boot_hr_haufe_n',num2str(Nboot),'_05.nii']);
 
 % Save out: mean encoding of bootstrap sign. (p<0.01) group gray-matter voxels
-mu_boot_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(sig_ids_01,1),gm_nii,sig_ids_01);
-save_nii(mu_boot_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_01.nii']);
+mu_boot_hr_haufe_nii = build_nii_from_gm_mask(grp_haufe_hr(sig_ids_01,1),gm_nii,sig_ids_01);
+save_nii(mu_boot_hr_haufe_nii,[proj.path.haufe.hr_permute_all,'mu_boot_hr_haufe_n',num2str(Nboot),'_01.nii']);
 % Save out: mean encoding of bootstrap sign. (p<0.001) group gray-matter voxels
-mu_boot_hrv_haufe_nii = build_nii_from_gm_mask(grp_haufe_hrv(sig_ids_001,1),gm_nii,sig_ids_001);
-save_nii(mu_boot_hrv_haufe_nii,[proj.path.haufe.hrv_permute_thresh,'mu_boot_hrv_haufe_n',num2str(Nboot),'_001.nii']);
+mu_boot_hr_haufe_nii = build_nii_from_gm_mask(grp_haufe_hr(sig_ids_001,1),gm_nii,sig_ids_001);
+save_nii(mu_boot_hr_haufe_nii,[proj.path.haufe.hr_permute_all,'mu_boot_hr_haufe_n',num2str(Nboot),'_001.nii']);

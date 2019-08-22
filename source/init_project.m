@@ -42,7 +42,7 @@ proj.path.raw_tabs = 'tabs';
 
 %% Workspace
 proj.path.home = '/home/kabush/workspace/';
-proj.path.name = 'HRV';
+proj.path.name = 'HR';
 proj.path.code = [proj.path.home,'code/',proj.path.name,'/'];
 proj.path.data = [proj.path.home,'data/',proj.path.name,'/'];
 proj.path.log =[proj.path.code,'log/'];
@@ -50,7 +50,7 @@ proj.path.fig = [proj.path.code,'fig/'];
 
 %% ----------------------------------------
 %% TICKET: Refactor output paths by data
-%% mri[raw, i.e. clean and gm], hrv,
+%% mri[raw, i.e. clean and gm], hr,
 %% ----------------------------------------
 
 %% Subject Lists
@@ -81,32 +81,27 @@ proj.path.mri.gm_mask = [proj.path.data,proj.path.mri.name,'gm_mask/'];
 proj.path.betas.fmri_ex_beta = [proj.path.data,proj.path.betas.name,'fmri_ex_beta/'];
 proj.path.betas.fmri_in_beta = [proj.path.data,proj.path.betas.name,'fmri_in_beta/'];
 
-%% HRV paths (all)
-proj.path.physio.hrv_beta = [proj.path.data,proj.path.betas.name,'hrv_beta/']; 
-proj.path.physio.hrv_bpm = [proj.path.data,proj.path.betas.name,'hrv_bpm/'];  
-proj.path.physio.hrv_kubios = [proj.path.data,proj.path.physio.name,'hrv_kubios/']; 
-proj.path.physio.hrv_kubios_output = [proj.path.raw_data,'kubios/']; ...
+%% HR paths (all)
+proj.path.physio.hr_beta = [proj.path.data,proj.path.betas.name,'hr_beta/']; 
+proj.path.physio.hr_bpm = [proj.path.data,proj.path.betas.name,'hr_bpm/'];  
+proj.path.physio.hr_kubios = [proj.path.data,proj.path.physio.name,'hr_kubios/']; 
+proj.path.physio.hr_kubios_output = [proj.path.raw_data,'kubios/']; ...
+
 % master level repository of all kubios processed HR files
-proj.path.physio.hrv_kubios_reformat = [proj.path.data,proj.path.physio.name,'kubios_reformat/']; 
+proj.path.physio.hr_kubios_reformat = [proj.path.data,proj.path.physio.name,'kubios_reformat/']; 
 
 %% Target paths (all)
 proj.path.trg.ex = [proj.path.data,proj.path.trg.name,'target_ex/'];
 proj.path.trg.in = [proj.path.data,proj.path.trg.name,'target_in/'];
 
 %% MVPA paths (all)
-proj.path.mvpa.hrv_thresh = [proj.path.data,proj.path.mvpa.name,'hrv_thresh/'];  
-proj.path.mvpa.hrv_all = [proj.path.data,proj.path.mvpa.name,'hrv_all/'];  
+proj.path.mvpa.hr_thresh = [proj.path.data,proj.path.mvpa.name,'hr_thresh/'];  
+proj.path.mvpa.hr_all = [proj.path.data,proj.path.mvpa.name,'hr_all/'];  
 
 %% Haufe paths (all)
-% proj.path.hrv_haufe_thresh = [proj.path.data,'hrv_haufe_thresh/']; 
-% proj.path.hrv_haufe_all = [proj.path.data,'hrv_haufe_all/'];  
-proj.path.haufe.hrv_permute_thresh = [proj.path.data,proj.path.haufe.name,'hrv_permute_thresh/'];  
-proj.path.haufe.hrv_permute_all = [proj.path.data,proj.path.haufe.name,'hrv_permute_all/'];  
+proj.path.haufe.hr_permute_thresh = [proj.path.data,proj.path.haufe.name,'hr_permute_thresh/'];  
+proj.path.haufe.hr_permute_all = [proj.path.data,proj.path.haufe.name,'hr_permute_all/'];  
 proj.path.haufe.cosine = [proj.path.data,proj.path.haufe.name,'cosine/'];  
-
-% %% MVPA path
-% proj.path.mvpa_fmri_ex_gs_cls = [proj.path.data,'mvpa_fmri_ex_gs_cls/'];
-% proj.path.mvpa_fmri_ex_gm_cls = [proj.path.data,'mvpa_fmri_ex_gm_cls/'];
 
 %% Task file nomenclature
 proj.path.task.name_id1 = 'Identify_run_1';
@@ -197,10 +192,10 @@ proj.param.physio.hz_emg = 2000;
 proj.param.physio.hz_hr = 2000;
 
 %% HR analysis parameters
-proj.param.physio.hrv.intrv = 0.5:0.5:4.0;
-proj.param.physio.hrv.n_resamp = 30;
-proj.param.physio.hrv.thresh_seq = 0.1:0.1:3.4;
-proj.param.physio.hrv.convert_bpm = 60;
+proj.param.physio.hr.intrv = 0.5:0.5:4.0;
+proj.param.physio.hr.n_resamp = 30;
+proj.param.physio.hr.thresh_seq = 0.1:0.1:3.4;
+proj.param.physio.hr.convert_bpm = 60;
 
 %% MVPA parameters
 proj.param.mvpa.kernel = 'linear';

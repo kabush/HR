@@ -10,7 +10,7 @@
 
 %% This script systematically constructs
 %% a threshold to filter out neutrally
-%% valenced stimuli from the HRV analysis
+%% valenced stimuli from the HR analysis
 %% in line with 
 %%
 %%
@@ -18,12 +18,12 @@
 load('proj.mat');
 
 %% ----------------------------------------
-%% Set-up Directory Structure for HRV
+%% Set-up Directory Structure for HR
 if(proj.flag.clean_build)
-    logger(['Removing ',proj.path.physio.hrv_bpm],proj.path.logfile);
-    eval(['! rm -rf ',proj.path.physio.hrv_bpm]);
-    logger(['Creating ',proj.path.physio.hrv_bpm],proj.path.logfile);
-    eval(['! mkdir ',proj.path.physio.hrv_bpm]);
+    logger(['Removing ',proj.path.physio.hr_bpm],proj.path.logfile);
+    eval(['! rm -rf ',proj.path.physio.hr_bpm]);
+    logger(['Creating ',proj.path.physio.hr_bpm],proj.path.logfile);
+    eval(['! mkdir ',proj.path.physio.hr_bpm]);
 end
 
 %% ----------------------------------------
@@ -47,7 +47,7 @@ seq_id1 = 1:(n_stim/2);
 seq_id2 = ((n_stim/2)+1):n_stim;
 
 %% allocate storage
-grp_trajs = zeros(n_stim,numel(proj.param.physio.hrv.intrv));
+grp_trajs = zeros(n_stim,numel(proj.param.physio.hr.intrv));
 grp_cnts = zeros(n_stim,1);
 % grp_intrvs = [];
 
@@ -63,45 +63,45 @@ for i = 1:numel(subjs)
     name = subjs{i}.name;
     id = subjs{i}.id;
     try
-        load([proj.path.physio.hrv_beta,subj_study,'_',name,'_ex_betas.mat']);
+        load([proj.path.physio.hr_beta,subj_study,'_',name,'_ex_betas.mat']);
     catch
         logger([subj_study,'_',name],proj.path.logfile);
-        logger(['    Could not find hrv beta file for processing.'],proj.path.logfile);
+        logger(['    Could not find hr beta file for processing.'],proj.path.logfile);
     end
 
     trajs = [ex_betas.trajs1;ex_betas.trajs2];
     intrvs = [ex_betas.t_intrvs1]; 
 
-    %%Change name to handle missing HRV
+    %%Change name to handle missing HR
     if(~isempty(trajs))
 
-        hrv_v_score = v_score;
-        hrv_seq = seq_all;
+        hr_v_score = v_score;
+        hr_seq = seq_all;
 
-        %%Adjust training data to handle mising HRV
+        %%Adjust training data to handle mising HR
         if(isempty(ex_betas.trajs1))
             trajs = ex_betas.trajs2;
             intrvs = ex_betas.t_intrvs2; 
             % grp_intrvs = ex_betas.t_intrvs2; 
-            hrv_seq = seq_id2;
-            hrv_v_score = v_score(seq_id2);
+            hr_seq = seq_id2;
+            hr_v_score = v_score(seq_id2);
         end
         
         if(isempty(ex_betas.trajs2))
             trajs = ex_betas.trajs1;
             intrvs = ex_betas.t_intrvs1; 
             % grp_intrvs = ex_betas.t_intrvs2; 
-            hrv_seq = seq_id1;
-            hrv_v_score = v_score(seq_id1);
+            hr_seq = seq_id1;
+            hr_v_score = v_score(seq_id1);
         end
         
-        trajs = proj.param.physio.hrv.convert_bpm*trajs; %convert to bpm
-        grp_trajs(hrv_seq,:) = grp_trajs(hrv_seq,:)+trajs;
-        grp_cnts(hrv_seq) = grp_cnts(hrv_seq)+1;
+        trajs = proj.param.physio.hr.convert_bpm*trajs; %convert to bpm
+        grp_trajs(hr_seq,:) = grp_trajs(hr_seq,:)+trajs;
+        grp_cnts(hr_seq) = grp_cnts(hr_seq)+1;
         
         %% Collect data for inter-subject LOOCV
         all_trajs = [all_trajs;trajs];
-        all_v_scores = [all_v_scores;hrv_v_score];
+        all_v_scores = [all_v_scores;hr_v_score];
         all_i = [all_i;repmat(i,size(trajs,1),1)];
         
     end
@@ -135,9 +135,9 @@ end
 %    this as the point at which categories are "PURE"
 %    wrt the measure
 
-Nsample = proj.param.physio.hrv.n_resamp;;
+Nsample = proj.param.physio.hr.n_resamp;;
 not_found = 1;
-thresh_seq = proj.param.physio.hrv.thresh_seq;
+thresh_seq = proj.param.physio.hr.thresh_seq;
 thresh_vec = [];
 all_b = [];
 all_p = [];
@@ -236,12 +236,12 @@ pos_bpm = grp_pos_trajs(:,min_id);
 neg_bpm = grp_neg_trajs(:,min_id);
 all_bpm = grp_trajs(:,min_id);
 
-save([proj.path.physio.hrv_bpm,'best_thresh.mat'],'best_thresh');
-save([proj.path.physio.hrv_bpm,'all_bpm.mat'],'all_bpm');
-save([proj.path.physio.hrv_bpm,'pos_ids.mat'],'pos_ids');
-save([proj.path.physio.hrv_bpm,'pos_bpm.mat'],'pos_bpm');
-save([proj.path.physio.hrv_bpm,'neg_ids.mat'],'neg_ids');
-save([proj.path.physio.hrv_bpm,'neg_bpm.mat'],'neg_bpm');
+save([proj.path.physio.hr_bpm,'best_thresh.mat'],'best_thresh');
+save([proj.path.physio.hr_bpm,'all_bpm.mat'],'all_bpm');
+save([proj.path.physio.hr_bpm,'pos_ids.mat'],'pos_ids');
+save([proj.path.physio.hr_bpm,'pos_bpm.mat'],'pos_bpm');
+save([proj.path.physio.hr_bpm,'neg_ids.mat'],'neg_ids');
+save([proj.path.physio.hr_bpm,'neg_bpm.mat'],'neg_bpm');
 
 %% ----------------------------------------
 %% Plot intermediate results
@@ -269,8 +269,8 @@ ax = fig.CurrentAxes;
 ax.FontSize = proj.param.plot.axisLabelFontSize;
 
 % export hi-resolution figure
-export_fig 'plot_hrv_thresh_significance.png' -r300  
-eval(['! mv ',proj.path.code,'plot_hrv_thresh_significance.png ',proj.path.fig]);
+export_fig 'plot_hr_thresh_significance.png' -r300  
+eval(['! mv ',proj.path.code,'plot_hr_thresh_significance.png ',proj.path.fig]);
 
 % ----------------------------------------
 % This is an extremely complex figure designed
@@ -281,7 +281,7 @@ figure(2)
 set(gcf,'color','w');
 
 % Plot zero acceleration line
-x = linspace(proj.param.physio.hrv.intrv(1),proj.param.physio.hrv.intrv(end));
+x = linspace(proj.param.physio.hr.intrv(1),proj.param.physio.hr.intrv(end));
 plot(x,0*x,'-k','LineWidth',2);
 hold on;
 
@@ -327,8 +327,8 @@ ax.FontSize = proj.param.plot.axisLabelFontSize;
 
 %% ----------------------------------------
 %% explot hi-resolution figure
-export_fig 'hrv_thresh_traj.png' -r300  
-eval(['! mv ',proj.path.code,'hrv_thresh_traj.png ', ...
+export_fig 'hr_thresh_traj.png' -r300  
+eval(['! mv ',proj.path.code,'hr_thresh_traj.png ', ...
       proj.path.fig]);
 
 %% ----------------------------------------
@@ -387,8 +387,8 @@ disp('*****************DEBUG****************');
 cv_rho_all
 cv_rho_thresh
 
-save([proj.path.physio.hrv_bpm,'cv_rho_all.mat'],'cv_rho_all');
-save([proj.path.physio.hrv_bpm,'cv_rho_thresh.mat'],'cv_rho_thresh');
+save([proj.path.physio.hr_bpm,'cv_rho_all.mat'],'cv_rho_all');
+save([proj.path.physio.hr_bpm,'cv_rho_thresh.mat'],'cv_rho_thresh');
 
 disp('Group Valence values for Pos/Neg');
 disp(['Mu Pos V: ',num2str(mean(v_score(pos_ids)))]);

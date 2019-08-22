@@ -13,15 +13,15 @@ load('proj.mat');
 
 %% Initialize log section
 logger(['************************************************'],proj.path.logfile);
-logger(['Inter-subject LOOCV MVPA RGR GM Features -> HRVs'],proj.path.logfile);
+logger(['Inter-subject LOOCV MVPA RGR GM Features -> HRs'],proj.path.logfile);
 logger(['************************************************'],proj.path.logfile);
 
 %% Set-up Directory Structure for fMRI betas
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.mvpa.hrv_thresh]);
-    eval(['! rm -rf ',proj.path.mvpa.hrv_thresh]);
-    disp(['Creating ',proj.path.mvpa.hrv_thresh]);
-    eval(['! mkdir ',proj.path.mvpa.hrv_thresh]);
+    disp(['Removing ',proj.path.mvpa.hr_thresh]);
+    eval(['! rm -rf ',proj.path.mvpa.hr_thresh]);
+    disp(['Creating ',proj.path.mvpa.hr_thresh]);
+    eval(['! mkdir ',proj.path.mvpa.hr_thresh]);
 end
 
 %% ----------------------------------------
@@ -33,7 +33,7 @@ v_score = load([proj.path.trg.ex,'stim_v_scores.txt']);
 v_score = v_score(find(label_id==proj.param.trg.ex_id));
 
 %% prune away non-threshold stimuli
-load([proj.path.physio.hrv_bpm,'best_thresh.mat']);
+load([proj.path.physio.hr_bpm,'best_thresh.mat']);
 best_thresh
 adj_v_score = v_score-mean(v_score);
 v_ids = find(abs(adj_v_score)>=best_thresh);
@@ -43,13 +43,13 @@ v_ids = find(abs(adj_v_score)>=best_thresh);
 subjs = load_subjs(proj);
 
 %% ----------------------------------------
-%% load group HRV data
-load([proj.path.physio.hrv_bpm,'all_bpm.mat']);
+%% load group HR data
+load([proj.path.physio.hr_bpm,'all_bpm.mat']);
 
 %% Storage for MVPA inputs
 all_ex_img = [];
 all_v = [];
-all_hrv_bpm = [];
+all_hr_bpm = [];
 all_subj_i = [];
 all_qlty_i = [];
 
@@ -108,7 +108,7 @@ for i = 1:numel(subjs)
         %% Build Inter-subjec structures
         all_ex_img = [all_ex_img;ex_img(v_ids,:)];
         all_v = [all_v;v_score(v_ids)];
-        all_hrv_bpm = [all_hrv_bpm;all_bpm(v_ids)];
+        all_hr_bpm = [all_hr_bpm;all_bpm(v_ids)];
         all_subj_i = [all_subj_i;subj_id];
         all_qlty_i = [all_qlty_i;i];
         
@@ -130,8 +130,8 @@ for i = 1:numel(all_qlty_i)
     %% allocate result storage
     result = struct();
 
-    %% predict HRV (restricted data)
-    [out,trg,~,mdl] = regress_inter_loocv(all_ex_img, all_hrv_bpm, ...
+    %% predict HR (restricted data)
+    [out,trg,~,mdl] = regress_inter_loocv(all_ex_img, all_hr_bpm, ...
                                           all_subj_i,qlty_i, ...
                                           proj.param.mvpa.kernel);
     
@@ -155,7 +155,7 @@ for i = 1:numel(all_qlty_i)
     result.v.ids = mdl.ids;
 
     %% save out prediction result
-    save([proj.path.mvpa.hrv_thresh,subj_study,'_',name,'_result.mat'],'result');
+    save([proj.path.mvpa.hr_thresh,subj_study,'_',name,'_result.mat'],'result');
 
     %% log 
     logger([subj_study,'_',name,', bpm(rho)=',num2str(result.bpm.rho),[', ' ...

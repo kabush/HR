@@ -13,12 +13,12 @@
 load('proj.mat');
 
 %% ----------------------------------------
-%% Set-up Directory Structure for HRV
+%% Set-up Directory Structure for HR
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.physio.hrv_beta]);
-    eval(['! rm -rf ',proj.path.physio.hrv_beta]);
-    disp(['Creating ',proj.path.physio.hrv_beta]);
-    eval(['! mkdir ',proj.path.physio.hrv_beta]);
+    disp(['Removing ',proj.path.physio.hr_beta]);
+    eval(['! rm -rf ',proj.path.physio.hr_beta]);
+    disp(['Creating ',proj.path.physio.hr_beta]);
+    eval(['! mkdir ',proj.path.physio.hr_beta]);
 end
 
 %% ----------------------------------------
@@ -46,7 +46,7 @@ save([proj.path.code,'tmp/times1.txt'],'times1','-ascii');
 save([proj.path.code,'tmp/times2.txt'],'times2','-ascii');
 
 %% ----------------------------------------
-%% Compute HRVs over each subject individually
+%% Compute HRs over each subject individually
 for i=1:numel(subjs)
    
     %% extract subject info
@@ -57,7 +57,7 @@ for i=1:numel(subjs)
     disp(['***********************************']);
     disp([subj_study,':',name]);
 
-    %% Initialize hrv beta structure
+    %% Initialize hr beta structure
     ex_betas = struct();
 
     %% ----------------------------------------
@@ -71,16 +71,16 @@ for i=1:numel(subjs)
     %% Process Identify Run 1
 
     %% Define input/outputs paths
-    in_path = [proj.path.physio.hrv_kubios_reformat,subj_study,'_',name,'_Identify_run_1_kubios_reformat.csv'];
+    in_path = [proj.path.physio.hr_kubios_reformat,subj_study,'_',name,'_Identify_run_1_kubios_reformat.csv'];
     id_path = [proj.path.code,'tmp/ids1.txt'];
     time_path = [proj.path.code,'tmp/times1.txt'];
 
     disp('****MATLAB***');
     disp(out_path)
 
-    %% RUN Kayla's HRV python code (will save out to) 
-    eval(['! /usr/local/miniconda/bin/python ',proj.path.code,...
-          'source/beta_series/kubios_hrv_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
+    %% RUN Kayla's HR python code (will save out to) 
+    eval(['! /usr/local/miniconda3/bin/python ',proj.path.code,...
+          'source/beta_series/kubios_hr_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
 
     ex_betas.t_intrvs1 = [];
     ex_betas.trajs1 = [];
@@ -89,14 +89,14 @@ for i=1:numel(subjs)
         ex_betas.t_intrvs1 = load([proj.path.code,'tmp/',subj_study,'_',name,'_t_intrvs.txt']);
         ex_betas.trajs1 = load([proj.path.code,'tmp/',subj_study,'_',name,'_trajs.txt']);
     catch
-        disp('Could not load HRV files for Identify run 1');
+        disp('Could not load HR files for Identify run 1');
     end
 
     %% ----------------------------------------
     %% Process Identify Run 2
 
     %% Define input/outputs paths
-    in_path = [proj.path.physio.hrv_kubios_reformat,subj_study,'_',name,'_Identify_run_1_kubios_reformat.csv'];
+    in_path = [proj.path.physio.hr_kubios_reformat,subj_study,'_',name,'_Identify_run_1_kubios_reformat.csv'];
     id_path = [proj.path.code,'tmp/ids2.txt'];
     time_path = [proj.path.code,'tmp/times2.txt'];
 
@@ -105,9 +105,9 @@ for i=1:numel(subjs)
                proj.path.raw_physio,'/',subj_study,'_',name,'/', ...
                subj_study,'_',name,'_Rest.mat'];
 
-    %% RUN Kayla's HRV python code (will save out to) 
-    eval(['! /usr/local/miniconda/bin/python ',proj.path.code, ...
-          'source/beta_series/kubios_hrv_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
+    %% RUN Kayla's HR python code (will save out to) 
+    eval(['! /usr/local/miniconda3/bin/python ',proj.path.code, ...
+          'source/beta_series/kubios_hr_analysis.py ',in_path,' ',id_path,' ',time_path,' ',out_path]);
 
     ex_betas.t_intrvs2 = [];
     ex_betas.trajs2 = [];
@@ -116,12 +116,12 @@ for i=1:numel(subjs)
         ex_betas.t_intrvs2 = load([proj.path.code,'tmp/',subj_study,'_',name,'_t_intrvs.txt']);
         ex_betas.trajs2 = load([proj.path.code,'tmp/',subj_study,'_',name,'_trajs.txt']);
     catch
-        disp('Could not load HRV files for Identify run 1');
+        disp('Could not load HR files for Identify run 1');
     end
 
     %% ----------------------------------------
-    %% Save individual HRV structures
-    save([proj.path.physio.hrv_beta,subj_study,'_',name,'_ex_betas.mat'],'ex_betas');
+    %% Save individual HR structures
+    save([proj.path.physio.hr_beta,subj_study,'_',name,'_ex_betas.mat'],'ex_betas');
 
 end
 

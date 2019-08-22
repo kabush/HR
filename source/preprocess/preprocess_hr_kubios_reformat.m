@@ -13,10 +13,10 @@ load('proj.mat');
 
 %% Set-up Directory Structure
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.physio.hrv_kubios_reformat]);
-    eval(['! rm -rf ',proj.path.physio.hrv_kubios_reformat]);
-    disp(['Creating ',proj.path.physio.hrv_kubios_reformat]);
-    eval(['! mkdir ',proj.path.physio.hrv_kubios_reformat]);
+    disp(['Removing ',proj.path.physio.hr_kubios_reformat]);
+    eval(['! rm -rf ',proj.path.physio.hr_kubios_reformat]);
+    disp(['Creating ',proj.path.physio.hr_kubios_reformat]);
+    eval(['! mkdir ',proj.path.physio.hr_kubios_reformat]);
 end
 
 subjs = load_subjs(proj);
@@ -33,12 +33,12 @@ for i=1:numel(subjs)
     disp([subj_study,':',name]);
 
     try
-        path_id_1 = [proj.path.physio.hrv_kubios_output,subj_study, ...
-                     '_',name,'_Identify_run_1_hrv.mat'];
+        path_id_1 = [proj.path.physio.hr_kubios_output,subj_study, ...
+                     '_',name,'_Identify_run_1_hr.mat'];
         load(path_id_1);
 
-        rr = Res.HRV.Data.T_RR;
-        csvwrite([proj.path.physio.hrv_kubios_reformat,subj_study, ...
+        rr = Res.HR.Data.T_RR;
+        csvwrite([proj.path.physio.hr_kubios_reformat,subj_study, ...
                   '_',name,'_Identify_run_1_kubios_reformat.csv'],rr);
     catch
         disp('could not reformat Identify 1');
@@ -46,12 +46,12 @@ for i=1:numel(subjs)
 
 
     try
-        path_id_2 = [proj.path.physio.hrv_kubios_output,subj_study, ...
-                     '_',name,'_Identify_run_2_hrv.mat'];
+        path_id_2 = [proj.path.physio.hr_kubios_output,subj_study, ...
+                     '_',name,'_Identify_run_2_hr.mat'];
         load(path_id_2);
 
-        rr = Res.HRV.Data.T_RR;
-        csvwrite([proj.path.physio.hrv_kubios_reformat,subj_study, ...
+        rr = Res.HR.Data.T_RR;
+        csvwrite([proj.path.physio.hr_kubios_reformat,subj_study, ...
                   '_',name,'_Identify_run_2_kubios_reformat.csv'],rr);
     catch
         disp('could not reformat Identify 2');

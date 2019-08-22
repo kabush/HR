@@ -21,7 +21,7 @@ end
 
 % %% Initialize log section
 % logger(['************************************************'],proj.path.logfile);
-% logger([' Compare hyperplane angles (V vs HRV)           '],proj.path.logfile);
+% logger([' Compare hyperplane angles (V vs HR)           '],proj.path.logfile);
 % logger(['************************************************'],proj.path.logfile);
 
 %% ----------------------------------------
@@ -30,8 +30,8 @@ label_id = load([proj.path.trg.ex,'stim_ids.txt']);
 ex_ids = find(label_id==proj.param.trg.ex_id);
 
 %% ----------------------------------------
-%% load group HRV data
-load([proj.path.physio.hrv_bpm,'all_bpm.mat']);
+%% load group HR data
+load([proj.path.physio.hr_bpm,'all_bpm.mat']);
 
 %% ----------------------------------------
 %% load subjs
@@ -39,7 +39,7 @@ subjs = load_subjs(proj);
 
 %% Storage for MVPA inputs
 all_ex_img = [];
-all_hrv_bpm = [];
+all_hr_bpm = [];
 all_subj_i = [];
 all_qlty_i = [];
 
@@ -91,7 +91,7 @@ for i = 1:numel(subjs)
         %% ----------------------------------------
         %% Build Inter-subjec structures
         all_ex_img = [all_ex_img;ex_img];
-        all_hrv_bpm = [all_hrv_bpm;all_bpm];
+        all_hr_bpm = [all_hr_bpm;all_bpm];
         all_qlty_i = [all_qlty_i;i];
         
     end
@@ -110,8 +110,8 @@ for j=1:numel(all_qlty_i)
     name = subjs{qlty_i}.name;
     disp([subj_study,':',name]);
     
-    %% load valencea and hrv hyperplanes
-    load([proj.path.mvpa.hrv_all,subj_study,'_',name,'_result.mat']);
+    %% load valencea and hr hyperplanes
+    load([proj.path.mvpa.hr_all,subj_study,'_',name,'_result.mat']);
 
     %% HAUFE-TRANSFORM (valence)
     wts = zeros(1,size(all_ex_img,2));
