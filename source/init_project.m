@@ -27,6 +27,10 @@ addpath(genpath(proj.path.export_fig));
 proj.path.notboxplot = '/home/kabush/lib/noboxplot/'
 addpath(genpath(proj.path.notboxplot));
 
+proj.path.nifti = '/home/kabush/lib/nifti/'
+addpath(genpath(proj.path.nifti));
+
+
 %% ----------------------------------------
 %% Project Flag Definitions
 proj.flag.clean_build = 1;
@@ -97,6 +101,7 @@ proj.path.trg.in = [proj.path.data,proj.path.trg.name,'target_in/'];
 %% MVPA paths (all)
 proj.path.mvpa.hr_thresh = [proj.path.data,proj.path.mvpa.name,'hr_thresh/'];  
 proj.path.mvpa.hr_all = [proj.path.data,proj.path.mvpa.name,'hr_all/'];  
+proj.path.mvpa.v_all = [proj.path.data,proj.path.mvpa.name,'v_all/'];  
 
 %% Haufe paths (all)
 proj.path.haufe.hr_permute_thresh = [proj.path.data,proj.path.haufe.name,'hr_permute_thresh/'];  

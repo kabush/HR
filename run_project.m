@@ -55,7 +55,11 @@ init_project;
 % 
 % % Physio betas (these are the targets)
 % calc_hr_ex_beta; % bpm trajectories | neutral filtering
-% calc_hr_ex_bpm;  % bpm targets for mvpa
+% calc_hr_ex_bpm;  % *** bpm targets for mvpa: THIS IS WHERE
+%                  % THRESH SELECTED ***
+% 
+% calc_hr_ex_bpm_fix;
+% 
 % 
 % %% fMRI betas (these are the features)
 % calc_fmri_ex_beta;
@@ -64,18 +68,23 @@ init_project;
 % %% STEP 7: Conduct MVPA for Secondary Measures
 % mvpa_fmri_ex_gm_rgr_hr_inter_thresh; % inter-subj Gray-matter
 %                                      % regression.
-mvpa_fmri_ex_gm_rgr_hr_inter_all;    % inter-subj Gray-matter
-                                     % regression.
+% mvpa_fmri_ex_gm_rgr_hr_inter_all;    % inter-subj Gray-matter
+%                                      % regression.
+% 
+%mvpa_fmri_ex_gm_rgr_v;    % intra-subj
+%
 
-
-%% ------------------------------------------------------------
-%% STEP 8: Compare MVPA hyperplanes (V vs HR)
-analyze_ex_v_vs_hr_mvpa;
-
-%% ------------------------------------------------------------ 
-%% STEP 9: Secondary Analysis of EX physiology (Neuropsychologia Paper)
-analyze_ex_hr_mvpa;
-
+analyze_svm_bpm_v;
+ 
+% 
+% %% ------------------------------------------------------------
+% %% STEP 8: Compare MVPA hyperplanes (V vs HR)
+% analyze_ex_v_vs_hr_mvpa;
+% 
+% %% ------------------------------------------------------------ 
+% %% STEP 9: Secondary Analysis of EX physiology (Neuropsychologia Paper)
+% analyze_ex_hr_mvpa;
+% 
 % %% ------------------------------------------------------------ 
 % %% STEP 10: Hyperplane analysis
 % haufe_ex_gm_hr_mvpa_all_permute;

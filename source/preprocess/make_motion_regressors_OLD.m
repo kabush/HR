@@ -44,18 +44,13 @@ motion_pre_t(2:end,:)=motion(1:end-1,:);
 %motion t-1 squared
 motion_pre_t_square=motion_pre_t.*motion_pre_t;
 
-%creating censor file: bad TRs and the next TR are also bad
+%creating censor file
 censor=ones(size(FD));
-bad=find(FD>=proj.param.mri.FD_thresh);
+bad=find(FD>=.5);
 censor(bad)=0;
-if(numel(bad)>0)
-    if(bad(end)==numel(censor)) %make sure not to increase length
-                                %of censor file ***CHANGE from earlier***
-        censor(bad(1:end-1)+1)=0; 
-    else
-        censor(bad+1)=0;
-    end
-end
+
+%bad TRs and the next TR are also bad
+censor(bad+1)=0;
 
 %find single good TRs and censor them too
 f=find(censor==1);
@@ -78,13 +73,11 @@ end
 
 censor(bad_fs)=0;
 
-%% This is old way.  Better way is to use FD more wisely
-%% during analysis.
-%% %censor entire run if less than 50% of data is usable
-%% run_length=numel(censor);
-%% if numel(find(censor==1))./numel(censor)<.5
-%%    censor(1:end)=0;
-%% end
+%censor entire run if less than 50% of data is usable
+run_length=numel(censor);
+if numel(find(censor==1))./numel(censor)<.5
+   censor(1:end)=0;
+end
 
 num_TRs=sum(censor);
 

@@ -49,8 +49,6 @@ seq_id2 = ((n_stim/2)+1):n_stim;
 %% allocate storage
 grp_trajs = zeros(n_stim,numel(proj.param.physio.hr.intrv));
 grp_cnts = zeros(n_stim,1);
-% grp_intrvs = [];
-
 
 all_trajs = [];
 all_v_scores = [];
@@ -82,7 +80,6 @@ for i = 1:numel(subjs)
         if(isempty(ex_betas.trajs1))
             trajs = ex_betas.trajs2;
             intrvs = ex_betas.t_intrvs2; 
-            % grp_intrvs = ex_betas.t_intrvs2; 
             hr_seq = seq_id2;
             hr_v_score = v_score(seq_id2);
         end
@@ -90,7 +87,6 @@ for i = 1:numel(subjs)
         if(isempty(ex_betas.trajs2))
             trajs = ex_betas.trajs1;
             intrvs = ex_betas.t_intrvs1; 
-            % grp_intrvs = ex_betas.t_intrvs2; 
             hr_seq = seq_id1;
             hr_v_score = v_score(seq_id1);
         end
