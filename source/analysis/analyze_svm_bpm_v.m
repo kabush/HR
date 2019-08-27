@@ -103,7 +103,7 @@ subjects = double(subjects);
 %                     'pred2','subj'});
 % mdl_fe = fitlme(tbl,['trg ~ 1 + pred2']);
 % mdl_re= fitlme(tbl,['trg ~ 1 + pred2 + (1+pred2|subj)']);
-% 
+
 % Model SVM & BPM combined
 tbl = table(measures,pred1,pred2,subjects,'VariableNames',{'trg', ...
                     'pred1','pred2','subj'});
@@ -165,11 +165,11 @@ spred1 = y;
 y_hat = FE.Estimate(1) + FE.Estimate(2)*spred1; 
 plot(spred1,y_hat,'r-','LineWidth',3);
 
-%% overlay the estimate
-[y,idx] = sort(pred2);
-spred2 = y;
-y_hat = FE.Estimate(1) + FE.Estimate(3)*spred2; 
-plot(spred2,y_hat,'b-','LineWidth',3);
+% %% overlay the estimate
+% [y,idx] = sort(pred2);
+% spred2 = y;
+% y_hat = FE.Estimate(1) + FE.Estimate(3)*spred2; 
+% plot(spred2,y_hat,'b-','LineWidth',3);
 
 
 xlim([xmin,xmax]);
@@ -188,29 +188,29 @@ export_fig 'EX_predicted_v_summary.png' -r300
 eval(['! mv ',proj.path.code,'EX_predicted_v_summary.png ',proj.path.fig]);
 
 
-%% ----------------------------------------
-figure(2)
-set(gcf,'color','w');
-
-%% plot all the datapoints
-scatter(pred2*FE.Estimate(3),measures-(FE.Estimate(1)+FE.Estimate(2)*spred1),10, ...
-        'MarkerFaceColor', proj.param.plot.white,'MarkerEdgeColor', ...
-        proj.param.plot.light_grey);
-hold on;
-
-%% overlay the estimate
-[y,idx] = sort(pred2);
-spred2 = y;
-y_hat = FE.Estimate(3)*spred2; 
-plot(spred2,y_hat,'b-','LineWidth',3);
-
-xlim([-.1,.1]);
-ylim([ymin,ymax]);
-
-hold off;
-fig = gcf;
-ax = fig.CurrentAxes;
-ax.FontSize = proj.param.plot.axisLabelFontSize;
-
-ylabel('Valence Scores');
-ylabel('Main effect residuals');
+% %% ----------------------------------------
+% figure(2)
+% set(gcf,'color','w');
+% 
+% %% plot all the datapoints
+% scatter(pred2*FE.Estimate(3),measures-(FE.Estimate(1)+FE.Estimate(2)*spred1),10, ...
+%         'MarkerFaceColor', proj.param.plot.white,'MarkerEdgeColor', ...
+%         proj.param.plot.light_grey);
+% hold on;
+% 
+% %% overlay the estimate
+% [y,idx] = sort(pred2);
+% spred2 = y;
+% y_hat = FE.Estimate(3)*spred2; 
+% plot(spred2,y_hat,'b-','LineWidth',3);
+% 
+% xlim([-.1,.1]);
+% ylim([ymin,ymax]);
+% 
+% hold off;
+% fig = gcf;
+% ax = fig.CurrentAxes;
+% ax.FontSize = proj.param.plot.axisLabelFontSize;
+% 
+% ylabel('Valence Scores');
+% ylabel('Main effect residuals');

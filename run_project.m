@@ -73,9 +73,9 @@ init_project;
 % 
 %mvpa_fmri_ex_gm_rgr_v;    % intra-subj
 %
-
-analyze_svm_bpm_v;
- 
+% %% ***** ANALYZE!!!!!!
+% analyze_svm_bpm_v;
+%  
 % 
 % %% ------------------------------------------------------------
 % %% STEP 8: Compare MVPA hyperplanes (V vs HR)
@@ -85,8 +85,8 @@ analyze_svm_bpm_v;
 % %% STEP 9: Secondary Analysis of EX physiology (Neuropsychologia Paper)
 % analyze_ex_hr_mvpa;
 % 
-% %% ------------------------------------------------------------ 
-% %% STEP 10: Hyperplane analysis
-% haufe_ex_gm_hr_mvpa_all_permute;
+%% ------------------------------------------------------------ 
+%% STEP 10: Hyperplane analysis
+haufe_ex_gm_bpm_all_permute;
 
 toc

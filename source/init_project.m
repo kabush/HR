@@ -104,9 +104,10 @@ proj.path.mvpa.hr_all = [proj.path.data,proj.path.mvpa.name,'hr_all/'];
 proj.path.mvpa.v_all = [proj.path.data,proj.path.mvpa.name,'v_all/'];  
 
 %% Haufe paths (all)
-proj.path.haufe.hr_permute_thresh = [proj.path.data,proj.path.haufe.name,'hr_permute_thresh/'];  
-proj.path.haufe.hr_permute_all = [proj.path.data,proj.path.haufe.name,'hr_permute_all/'];  
-proj.path.haufe.cosine = [proj.path.data,proj.path.haufe.name,'cosine/'];  
+% proj.path.haufe.hr_permute_thresh = [proj.path.data,proj.path.haufe.name,'hr_permute_thresh/'];  
+% proj.path.haufe.hr_permute_all = [proj.path.data,proj.path.haufe.name,'hr_permute_all/'];  
+% proj.path.haufe.cosine = [proj.path.data,proj.path.haufe.name,'cosine/'];  
+proj.path.haufe.bpm_permute_all = [proj.path.data,proj.path.haufe.name,'bpm_permute_all/'];  
 
 %% Task file nomenclature
 proj.path.task.name_id1 = 'Identify_run_1';
