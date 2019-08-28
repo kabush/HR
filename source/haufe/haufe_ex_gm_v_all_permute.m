@@ -69,7 +69,7 @@ for i = 1:Nloop
         id = subjs{j}.id;
         
         %% debug
-        logger([subj_study,':',name,':i=',num2str(i)],proj.path.logfile);
+        disp([subj_study,':',name,':i=',num2str(i)]);
         
         try
 
@@ -246,6 +246,9 @@ for i = 1:Nloop
 
     end
 
-    toc
+        
+    %% log completion of permuation testing
+    logger([subj_study,':',name,':i=',num2str(i)],proj.path.logfile);
 
+    toc        
 end
