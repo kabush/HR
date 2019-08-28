@@ -170,5 +170,5 @@ xlabel('HR Deceleration');
 ylabel('Valence Prediction Error');
 
 %% explot hi-resolution figure
-export_fig 'EX_err_wrt_bpm_summary.png' -r300  
-eval(['! mv ',proj.path.code,'EX_err_wrt_bpm_summary.png ',proj.path.fig]);
+export_fig 'EX_bpm_vs_err.png' -r300  
+eval(['! mv ',proj.path.code,'EX_bpm_vs_err.png ',proj.path.fig]);

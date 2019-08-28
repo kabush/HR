@@ -158,6 +158,6 @@ xlabel('Valence Scores');
 ylabel('Valence Prediciton Error');
 
 %% explot hi-resolution figure
-export_fig 'EX_v_err_wrt_v_summary.png' -r300  
-eval(['! mv ',proj.path.code,'EX_v_err_wrt_v_summary.png ',proj.path.fig]);
+export_fig 'EX_val_vs_err.png' -r300  
+eval(['! mv ',proj.path.code,'EX_val_vs_err.png ',proj.path.fig]);
 

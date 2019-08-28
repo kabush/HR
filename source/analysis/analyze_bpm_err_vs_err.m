@@ -13,7 +13,7 @@
 % 
 %% Initialize log section
 logger(['************************************************'],proj.path.logfile);
-logger(['Compare Predicted VAL predicting VAL    '],proj.path.logfile);
+logger(['Compare BPM prediction error predicting prediction error  '],proj.path.logfile);
 logger(['************************************************'],proj.path.logfile);
 
 %% ----------------------------------------
@@ -30,8 +30,11 @@ subjs = load_subjs(proj);
 %% iterate over study subjects
 
 val = [];
+bpm = [];
 pval = [];
 sids = [];
+
+load([proj.path.physio.hr_bpm,'min_traj_idx.mat']);
 
 cnt = 0;
 
@@ -48,6 +51,14 @@ for i = 1:numel(subjs)
     svm_exist = 0;
 
     try
+        % Load BPM data
+        load([proj.path.physio.hr_bpm,subj_study,'_',name,'_trajs.mat']);
+        traj_exist = 1;
+    catch
+        logger(['   Missing traj'],proj.path.logfile);
+    end
+
+    try
         % Load SVM predictions
         load([proj.path.mvpa.v_all,subj_study,'_',name,'_prds.mat']);
         svm_exist = 1;
@@ -55,13 +66,14 @@ for i = 1:numel(subjs)
         logger(['   Missing svm'],proj.path.logfile);
     end
 
-    if(svm_exist)
+    if(traj_exist & svm_exist)
         
         cnt = cnt + 1;
 
         % Load everythin
-        pval = [pval;zscore(prds.out)];
+        bpm = [bpm;zscore(trajs(:,min_traj_idx))];
         val = [val;zscore(v_score)];
+        pval = [pval;zscore(prds.out)];
         sids = [sids;repmat(cnt,numel(v_score),1)];
         
     end
@@ -73,12 +85,13 @@ end
 %% Group GLMM fit
 
 %Variables
-m_pval = double(pval);
-m_val = double(val);
+m_bpm_err = double(zscore(bpm-val));
+m_err = double(zscore(pval-val));
+m_bpm = double(bpm);
 m_sids = double(sids);
 
-% Primary Test: 
-tbl = table(m_val,m_pval,m_sids,'VariableNames',{'trg', ...
+% Primary Test:  Model SVM & BPM combined
+tbl = table(m_err,m_bpm_err,m_sids,'VariableNames',{'trg', ...
                     'pred1','subj'});
 mdl_fe = fitlme(tbl,['trg ~ 1 + pred1']);
 mdl_re= fitlme(tbl,['trg ~ 1 + pred1 + (1+pred1|subj)']);
@@ -130,19 +143,19 @@ figure(1)
 set(gcf,'color','w');
 
 %% format figure
-ymin = -2.2;
-ymax = 2.0;
+ymin = -3;
+ymax = 3;
 xmin = -3;
 xmax = 3;
 
 %% plot all the datapoints
-scatter(m_pval,m_val,10,'MarkerFaceColor', ...
+scatter(m_bpm_err,m_err,10,'MarkerFaceColor', ...
         proj.param.plot.white,'MarkerEdgeColor', ...
         proj.param.plot.light_grey);
 hold on;
 
-%% overlay the group effect
-sx1 = linspace(min(m_pval),max(m_pval));
+%% overlay the SVM group effeect
+sx1 = linspace(min(m_bpm_err),max(m_bpm_err));
 sy1 = FE.Estimate(1) + FE.Estimate(2)*sx1; 
 plot(sx1,sy1,'r-','LineWidth',3);
 
@@ -154,10 +167,9 @@ fig = gcf;
 ax = fig.CurrentAxes;
 ax.FontSize = proj.param.plot.axisLabelFontSize;
 
-xlabel('Predicted Valence Scores');
-ylabel('Valence Scores');
+xlabel('HR Prediction Error');
+ylabel('Valence Prediction Error');
 
 %% explot hi-resolution figure
-export_fig 'EX_pval_vs_val.png' -r300  
-eval(['! mv ',proj.path.code,'EX_pval_vs_val.png ',proj.path.fig]);
-
+export_fig 'EX_bpm_err_vs_err.png' -r300  
+eval(['! mv ',proj.path.code,'EX_bpm_err_vs_err.png ',proj.path.fig]);

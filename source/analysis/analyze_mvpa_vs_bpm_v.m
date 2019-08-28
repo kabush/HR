@@ -172,6 +172,6 @@ xlabel('Predicted Valence Scores');
 ylabel('Valence Scores');
 
 %% explot hi-resolution figure
-export_fig 'EX_predicted_v_summary.png' -r300  
-eval(['! mv ',proj.path.code,'EX_predicted_v_summary.png ',proj.path.fig]);
+export_fig 'EX_mvpa_vs_bpm_v.png' -r300  
+eval(['! mv ',proj.path.code,'EX_mvpa_vs_bpm_v.png ',proj.path.fig]);
 

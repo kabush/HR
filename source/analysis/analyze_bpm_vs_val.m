@@ -160,6 +160,6 @@ xlabel('HR Deceleration');
 ylabel('Valence Scores');
 
 %% explot hi-resolution figure
-export_fig 'EX_val_wrt_bpm_summary.png' -r300  
-eval(['! mv ',proj.path.code,'EX_val_wrt_bpm_summary.png ',proj.path.fig]);
+export_fig 'EX_bpm_vs_val.png' -r300  
+eval(['! mv ',proj.path.code,'EX_bpm_vs_val.png ',proj.path.fig]);
 

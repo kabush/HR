@@ -112,7 +112,7 @@ for i = 1:Nloop
                 end
 
                 %% Fit classifier
-                mdl = fitrsvm(ex_img(label_ids,:),ex_v_score(label_ids),'KernelFunction',proj.param.mvpa.kernel);
+                mdl = fitrsvm(ex_img,ex_v_score(label_ids),'KernelFunction',proj.param.mvpa.kernel);
 
                 %% Construct Valence Haufe tranform
                 wts = mdl.Beta;

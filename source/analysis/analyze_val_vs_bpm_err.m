@@ -13,7 +13,7 @@
 % 
 %% Initialize log section
 logger(['************************************************'],proj.path.logfile);
-logger(['Compare BPM in prediting predicted VAL  '],proj.path.logfile);
+logger(['Compare VAL predicting BPM prediction error  '],proj.path.logfile);
 logger(['************************************************'],proj.path.logfile);
 
 %% ----------------------------------------
@@ -72,6 +72,7 @@ for i = 1:numel(subjs)
 
         % Load everythin
         bpm = [bpm;zscore(trajs(:,min_traj_idx))];
+        val = [val;zscore(v_score)];
         pval = [pval;zscore(prds.out)];
         sids = [sids;repmat(cnt,numel(v_score),1)];
         
@@ -84,12 +85,12 @@ end
 %% Group GLMM fit
 
 %Variables
-m_pval = double(pval);
-m_bpm = double(bpm);
+m_bpm_err = double(zscore(val-bpm));
+m_val = double(val);
 m_sids = double(sids);
 
 % Primary Test:  Model SVM & BPM combined
-tbl = table(m_pval,m_bpm,m_sids,'VariableNames',{'trg', ...
+tbl = table(m_bpm_err,m_val,m_sids,'VariableNames',{'trg', ...
                     'pred1','subj'});
 mdl_fe = fitlme(tbl,['trg ~ 1 + pred1']);
 mdl_re= fitlme(tbl,['trg ~ 1 + pred1 + (1+pred1|subj)']);
@@ -143,17 +144,17 @@ set(gcf,'color','w');
 %% format figure
 ymin = -3;
 ymax = 3;
-xmin = -3;
-xmax = 3;
+xmin = -2;
+xmax = 2;
 
 %% plot all the datapoints
-scatter(m_bpm,m_pval,10,'MarkerFaceColor', ...
+scatter(m_val,m_bpm_err,10,'MarkerFaceColor', ...
         proj.param.plot.white,'MarkerEdgeColor', ...
         proj.param.plot.light_grey);
 hold on;
 
 %% overlay the SVM group effeect
-sx1 = linspace(min(m_bpm),max(m_bpm));
+sx1 = linspace(min(m_bpm_err),max(m_bpm_err));
 sy1 = FE.Estimate(1) + FE.Estimate(2)*sx1; 
 plot(sx1,sy1,'r-','LineWidth',3);
 
@@ -165,9 +166,9 @@ fig = gcf;
 ax = fig.CurrentAxes;
 ax.FontSize = proj.param.plot.axisLabelFontSize;
 
-xlabel('HR Deceleration');
-ylabel('Predicted Valence Scores');
+xlabel('Valence');
+ylabel('HR Prediction Error');
 
 %% explot hi-resolution figure
-export_fig 'EX_pval_wrt_bpm_summary.png' -r300  
-eval(['! mv ',proj.path.code,'EX_pval_wrt_bpm_summary.png ',proj.path.fig]);
+export_fig 'EX_val_vs_bpm_err.png' -r300  
+eval(['! mv ',proj.path.code,'EX_val_vs_bpm_err.png ',proj.path.fig]);
