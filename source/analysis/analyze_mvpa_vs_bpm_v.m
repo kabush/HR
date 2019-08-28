@@ -21,7 +21,6 @@
 label_id = load([proj.path.trg.ex,'stim_ids.txt']);
 v_score = load([proj.path.trg.ex,'stim_v_scores.txt']);
 v_score = v_score(find(label_id==proj.param.trg.ex_id));
-v_score = zscore(v_score);
 
 %% ----------------------------------------
 %% load subjs
@@ -30,10 +29,10 @@ subjs = load_subjs(proj);
 %% ----------------------------------------
 %% iterate over study subjects
 
-valence = [];
+val = [];
 bpm = [];
-svm = [];
-subjects = [];
+pval = [];
+sids = [];
 
 load([proj.path.physio.hr_bpm,'min_traj_idx.mat']);
 
@@ -73,9 +72,9 @@ for i = 1:numel(subjs)
 
         % Load everythin
         bpm = [bpm;zscore(trajs(:,min_traj_idx))];
-        svm = [svm;prds];
-        valence = [valence;v_score];
-        subjects = [subjects;repmat(cnt,numel(v_score),1)];
+        pval = [pval;zscore(prds.out)];
+        val = [val;zscore(v_score)];
+        sids = [sids;repmat(cnt,numel(v_score),1)];
         
     end
 
@@ -86,29 +85,19 @@ end
 %% ----------------------------------------
 %% Group GLMM fit
 
-%TEST
-measures = double(valence);
-pred1  = double(svm-mean(svm));
-pred2 = double(bpm-mean(bpm));
-subjects = double(subjects);
+%Variables
+m_val = double(val);
+m_pval = double(pval);
+m_bpm = double(bpm);
+m_sids = double(sids);
 
-% % Model SVM only
-% tbl = table(measures,pred1,subjects,'VariableNames',{'trg', ...
-%                     'pred1','subj'});
-% mdl_fe = fitlme(tbl,['trg ~ 1 + pred1']);
-% mdl_re= fitlme(tbl,['trg ~ 1 + pred1 + (1+pred1|subj)']);
-% 
-% % Model BPM only
-% tbl = table(measures,pred2,subjects,'VariableNames',{'trg', ...
-%                     'pred2','subj'});
-% mdl_fe = fitlme(tbl,['trg ~ 1 + pred2']);
-% mdl_re= fitlme(tbl,['trg ~ 1 + pred2 + (1+pred2|subj)']);
-
-% Model SVM & BPM combined
-tbl = table(measures,pred1,pred2,subjects,'VariableNames',{'trg', ...
+% Primary Test:  Model SVM & BPM combined
+tbl = table(m_val,m_pval,m_bpm,m_sids,'VariableNames',{'trg', ...
                     'pred1','pred2','subj'});
 mdl_fe = fitlme(tbl,['trg ~ 1 + pred1 + pred2']);
 mdl_re= fitlme(tbl,['trg ~ 1 + pred1 + pred2 + (1+pred1|subj) + (1+pred2|subj)']);
+
+
 
 %%Explore random effects across model types
 fe_v_re = compare(mdl_fe,mdl_re);
@@ -154,22 +143,24 @@ figure(1)
 set(gcf,'color','w');
 
 %% plot all the datapoints
-scatter(pred1,measures,10,'MarkerFaceColor', ...
+scatter(m_pval,m_val,10,'MarkerFaceColor', ...
         proj.param.plot.white,'MarkerEdgeColor', ...
         proj.param.plot.light_grey);
 hold on;
 
-%% overlay the group VR skill plot
-[y,idx] = sort(pred1);
-spred1 = y;
-y_hat = FE.Estimate(1) + FE.Estimate(2)*spred1; 
-plot(spred1,y_hat,'r-','LineWidth',3);
+%% overlay the SVM group effeect
+[y,idx] = sort(m_pval);
+sx1 = y;
+sy1 = FE.Estimate(1) + FE.Estimate(2)*sx1; 
+plot(sx1,sy1,'r-','LineWidth',3);
 
-% %% overlay the estimate
-% [y,idx] = sort(pred2);
-% spred2 = y;
-% y_hat = FE.Estimate(1) + FE.Estimate(3)*spred2; 
-% plot(spred2,y_hat,'b-','LineWidth',3);
+%% overlay the BPM group effeect
+[y,idx] = sort(m_bpm);
+sx1 = y;
+sy1 = FE.Estimate(1) + FE.Estimate(3)*sx1; 
+plot(sx1,sy1,'b-','LineWidth',3);
+
+
 
 
 xlim([xmin,xmax]);

@@ -13,25 +13,24 @@ load('proj.mat');
 
 %% Initialize log section
 logger(['************************************************'],proj.path.logfile);
-logger(['Intra-subject LOOCV MVPA RGR GM Features -> Valence'],proj.path.logfile);
+logger(['Intra-subject LOOCV MVPA RGR GM Features -> BPM'],proj.path.logfile);
 logger(['************************************************'],proj.path.logfile);
 
 %% Set-up Directory Structure for fMRI betas
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.mvpa.v_all]);
-    eval(['! rm -rf ',proj.path.mvpa.v_all]);
-    disp(['Creating ',proj.path.mvpa.v_all]);
-    eval(['! mkdir ',proj.path.mvpa.v_all]);
+    disp(['Removing ',proj.path.mvpa.bpm_all]);
+    eval(['! rm -rf ',proj.path.mvpa.bpm_all]);
+    disp(['Creating ',proj.path.mvpa.bpm_all]);
+    eval(['! mkdir ',proj.path.mvpa.bpm_all]);
 end
 
 %% ----------------------------------------
 %% Load labels;
 label_id = load([proj.path.trg.ex,'stim_ids.txt']);
-v_score = load([proj.path.trg.ex,'stim_v_scores.txt']);
 
-%% Adjust for extrinsic presentations
-v_score = v_score(find(label_id==proj.param.trg.ex_id));
-v_score = zscore(v_score);
+%% ----------------------------------------
+%% Load BPM index (calculated earlier)
+load([proj.path.physio.hr_bpm,'min_traj_idx.mat']);
 
 %% ----------------------------------------
 %% load subjs
@@ -39,12 +38,11 @@ subjs = load_subjs(proj);
 
 %% ----------------------------------------
 %% iterate over study subjects
-
-bpm_features = [];
 measures = [];
-
 predictors = [];
 subjects = [];
+
+cnt = 0;
 
 for i = 1:numel(subjs)
 
@@ -56,7 +54,11 @@ for i = 1:numel(subjs)
     logger([subj_study,':',name],proj.path.logfile);
 
     try
-
+        
+        %% Load BPM data
+        load([proj.path.physio.hr_bpm,subj_study,'_',name,'_trajs.mat']);
+        bpm = zscore(trajs(:,min_traj_idx));
+        
         %% Load gray matter mask 
         gm_nii = load_nii([proj.path.mri.gm_mask,subj_study,'.',name,'.gm.nii']);
         mask = double(gm_nii.img);
@@ -83,29 +85,28 @@ for i = 1:numel(subjs)
         qlty = check_gm_img_qlty(ex_img);
         
         if(qlty.ok)
-
+            
             %% ----------------------------------------
-            %% Train VAL
+            %% MVPA of Brain state onto BPM
             
             %% Fit model
-            [out,trg,mdl,stats] = regress_intra_loocv(ex_img,v_score,proj.param.mvpa.kernel);
+            [out,trg,mdl,stats] = regress_intra_loocv(ex_img,bpm,proj.param.mvpa.kernel);
             disp(num2str(stats.rho));
-
+            
             prds = struct();
             prds.out = out;
             prds.trg = trg;
             prds.rho = stats.rho;
-
-            save([proj.path.mvpa.v_all,subj_study,'_',name,'_prds.mat'],'prds');
-
+            
+            save([proj.path.mvpa.bpm_all,subj_study,'_',name,'_prds.mat'],'prds');
+            
         else
             disp(['   quality check failed']);
-
+            
         end
         
     catch
         disp(['   MVPA Error: possible missing beta series']);
     end
-
+    
 end
-

@@ -18,10 +18,10 @@ logger(['************************************************'],proj.path.logfile);
 
 %% Set-up Directory Structure for fMRI betas
 if(proj.flag.clean_build)
-    disp(['Removing ',proj.path.haufe.bpm_permute_all]);
-    eval(['! rm -rf ',proj.path.haufe.bpm_permute_all]);
-    disp(['Creating ',proj.path.haufe.bpm_permute_all]);
-    eval(['! mkdir ',proj.path.haufe.bpm_permute_all]);
+    disp(['Removing ',proj.path.haufe.v_permute_all]);
+    eval(['! rm -rf ',proj.path.haufe.v_permute_all]);
+    disp(['Creating ',proj.path.haufe.v_permute_all]);
+    eval(['! mkdir ',proj.path.haufe.v_permute_all]);
 end
 
 %% ----------------------------------------
@@ -34,7 +34,6 @@ label_id = load([proj.path.trg.ex,'stim_ids.txt']);
 v_label = load([proj.path.trg.ex,'stim_v_labs.txt']);
 v_score = load([proj.path.trg.ex,'stim_v_scores.txt']);
 ex_id = find(label_id==proj.param.trg.ex_id);
-
 
 %% ----------------------------------------
 %% iterate over permuations
@@ -49,9 +48,6 @@ grp_haufe_v = zeros(172800,Nloop);  %%*** TICKET hardcoded ***
 alpha05 = 0.05;
 alpha01 = 0.01;
 alpha001 = 0.001;
-
-
-load([proj.path.physio.hr_bpm,'min_traj_idx.mat']);
 
 for i = 1:Nloop
 
@@ -77,10 +73,6 @@ for i = 1:Nloop
         
         try
 
-            %% Load BPM data
-            load([proj.path.physio.hr_bpm,subj_study,'_',name,'_trajs.mat']);
-            bpm = trajs(:,min_traj_idx);
-            
             %% Load gray matter mask 
             gm_nii = load_nii([proj.path.mri.gm_mask,'group_gm_mask.nii']);
             mask = double(gm_nii.img);
@@ -99,12 +91,11 @@ for i = 1:Nloop
             %% Concatenate the MASKED base image
             all_img = base_img(in_brain,:)';
             
-            %% ----------------------------------------
-            %% ----------------------------------------
-            %% NEED TO EXTRACT EX STIM
-            %% ----------------------------------------
-            %% ----------------------------------------
-            ex_img = all_img(ex_id,:);
+            %% Extract the extrinsic betas
+            ex_img = zscore(all_img(ex_id,:));
+
+            %% Extract the extrinsic valence scores;
+            ex_v_score = zscore(v_score(ex_id));
 
             %% Peform quality check of generated features
             qlty = check_gm_img_qlty(ex_img);
@@ -112,7 +103,7 @@ for i = 1:Nloop
             if(qlty.ok)
 
                 %% Grab all labels in proper order
-                label_ids = 1:numel(bpm);
+                label_ids = 1:numel(ex_v_score);
                 
                 %% Only first iteration is structure (remaining
                 %% loops are permutations, therefore randomize labels
@@ -121,7 +112,7 @@ for i = 1:Nloop
                 end
 
                 %% Fit classifier
-                mdl = fitrsvm(ex_img(label_ids,:),bpm(label_ids),'KernelFunction',proj.param.mvpa.kernel);
+                mdl = fitrsvm(ex_img(label_ids,:),ex_v_score(label_ids),'KernelFunction',proj.param.mvpa.kernel);
 
                 %% Construct Valence Haufe tranform
                 wts = mdl.Beta;
@@ -179,10 +170,10 @@ for i = 1:Nloop
     
     if(i>1)
 
-        save([proj.path.haufe.bpm_permute_all,'grp_haufe_v_n=',num2str(i-1),'_of_N=',num2str(Nperm),'.mat'],'grp_haufe_v');
+        save([proj.path.haufe.v_permute_all,'grp_haufe_v_n=',num2str(i-1),'_of_N=',num2str(Nperm),'.mat'],'grp_haufe_v');
 
         if(i>2)
-            eval(['! rm ',proj.path.haufe.bpm_permute_all,'grp_haufe_v_n=',num2str(i-2),'_of_N=',num2str(Nperm),'.mat']);
+            eval(['! rm ',proj.path.haufe.v_permute_all,'grp_haufe_v_n=',num2str(i-2),'_of_N=',num2str(Nperm),'.mat']);
         end
     
         %% ----------------------------------------
@@ -220,7 +211,7 @@ for i = 1:Nloop
         % Save out: mean encoding of group gray-matter voxels
         if(numel(row_ids_v)>0)
             mu_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v_tstat(row_ids_v,1),gm_nii,row_ids_v);
-            save_nii(mu_v_haufe_nii,[proj.path.haufe.bpm_permute_all,'mu_haufe_v_N=',num2str(Nperm),'.nii']);
+            save_nii(mu_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_haufe_v_N=',num2str(Nperm),'.nii']);
         end
 
         % ----------------------------------------
@@ -228,7 +219,7 @@ for i = 1:Nloop
         % gray-matter voxels
         if(numel(sig_ids_05_v)>0)
             mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v_tstat(sig_ids_05_v,1),gm_nii,sig_ids_05_v);
-            save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.bpm_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_05.nii']);
+            save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_05.nii']);
         end
 
         % ----------------------------------------
@@ -236,14 +227,14 @@ for i = 1:Nloop
         % gray-matter voxels
         if(numel(sig_ids_01_v)>0)
             mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(sig_ids_01_v,1),gm_nii,sig_ids_01_v);
-            save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.bpm_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_01.nii']);
+            save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_01.nii']);
         end
 
         % ----------------------------------------
         % Save out: mean encoding of permstrap sign. (p<0.001) group gray-matter voxels
         if(numel(sig_ids_001_v)>0)
              mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(sig_ids_001_v,1),gm_nii,sig_ids_001_v);
-             save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.bpm_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_001.nii']);
+             save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_001.nii']);
         end
 
     else
@@ -251,7 +242,7 @@ for i = 1:Nloop
         % ----------------------------------------
         % Save out: wts of encodign for power analysis
         disp('saving distribution***************')
-        save([proj.path.haufe.bpm_permute_all,'grp_haufe_distr.mat'],'grp_haufe_v_dist');
+        save([proj.path.haufe.v_permute_all,'grp_haufe_distr.mat'],'grp_haufe_v_dist');
 
     end
 
