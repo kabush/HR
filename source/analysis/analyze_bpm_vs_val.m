@@ -144,8 +144,7 @@ scatter(m_bpm,m_val,10,'MarkerFaceColor', ...
 hold on;
 
 %% overlay the SVM group effeect
-[y,idx] = sort(m_bpm);
-sx1 = y;
+sx1 = linspace(min(m_bpm),max(m_bpm));
 sy1 = FE.Estimate(1) + FE.Estimate(2)*sx1; 
 plot(sx1,sy1,'r-','LineWidth',3);
 

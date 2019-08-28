@@ -59,7 +59,7 @@ init_project;
 % 
 % %% fMRI betas (these are the features)
 % calc_fmri_ex_beta;
-
+% 
 %% ------------------------------------------------------------
 %% STEP 6: Conduct MVPA for Valence and BPM
 mvpa_fmri_ex_gm_rgr_v;      % intra-subj (state->valence)

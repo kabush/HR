@@ -142,8 +142,7 @@ scatter(m_val,m_err,10,'MarkerFaceColor', ...
 hold on;
 
 %% overlay the group effect
-[y,idx] = sort(m_val);
-sx1 = y;
+sx1 = linspace(min(m_val),max(m_val));
 sy1 = FE.Estimate(1) + FE.Estimate(2)*sx1; 
 plot(sx1,sy1,'r-','LineWidth',3);
 
