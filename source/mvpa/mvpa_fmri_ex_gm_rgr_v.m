@@ -89,7 +89,7 @@ for i = 1:numel(subjs)
             
             %% Fit model
             [out,trg,mdl,stats] = regress_intra_loocv(ex_img,v_score,proj.param.mvpa.kernel);
-            disp(num2str(stats.rho));
+            logger(['    rho=',num2str(stats.rho)],proj.path.logfile);
 
             prds = struct();
             prds.out = out;
@@ -99,12 +99,12 @@ for i = 1:numel(subjs)
             save([proj.path.mvpa.v_all,subj_study,'_',name,'_prds.mat'],'prds');
 
         else
-            disp(['   quality check failed']);
+            logger(['   quality check failed'],proj.path.logfile);
 
         end
         
     catch
-        disp(['   MVPA Error: possible missing beta series']);
+        logger(['   MVPA Error: possible missing beta series'],proj.path.logfile);
     end
 
 end

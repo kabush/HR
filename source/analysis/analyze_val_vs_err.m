@@ -11,10 +11,10 @@
 % %% Load in path data
 % load('proj.mat');
 % 
-% %% Initialize log section
-% logger(['************************************************'],proj.path.logfile);
-% logger(['Intra-subject LOOCV MVPA RGR GM Features -> Valence'],proj.path.logfile);
-% logger(['************************************************'],proj.path.logfile);
+%% Initialize log section
+logger(['************************************************'],proj.path.logfile);
+logger(['Compare VAL predicting VAL prediction error     '],proj.path.logfile);
+logger(['************************************************'],proj.path.logfile);
 
 %% ----------------------------------------
 %% Load Normative Valence scores;
@@ -30,11 +30,8 @@ subjs = load_subjs(proj);
 %% iterate over study subjects
 
 val = [];
-bpm = [];
 pval = [];
 sids = [];
-
-load([proj.path.physio.hr_bpm,'min_traj_idx.mat']);
 
 cnt = 0;
 
@@ -51,27 +48,18 @@ for i = 1:numel(subjs)
     svm_exist = 0;
 
     try
-        % Load BPM data
-        load([proj.path.physio.hr_bpm,subj_study,'_',name,'_trajs.mat']);
-        traj_exist = 1;
-    catch
-        disp(['   Missing traj']);
-    end
-
-    try
         % Load SVM predictions
         load([proj.path.mvpa.v_all,subj_study,'_',name,'_prds.mat']);
         svm_exist = 1;
     catch
-        disp(['   Missing svm']);
+        logger(['   Missing svm'],proj.path.logfile);
     end
 
-    if(traj_exist & svm_exist)
+    if(svm_exist)
         
         cnt = cnt + 1;
 
         % Load everythin
-        bpm = [bpm;zscore(trajs(:,min_traj_idx))];
         pval = [pval;zscore(prds.out)];
         val = [val;zscore(v_score)];
         sids = [sids;repmat(cnt,numel(v_score),1)];
@@ -81,63 +69,71 @@ for i = 1:numel(subjs)
 end
 
 
-
 %% ----------------------------------------
 %% Group GLMM fit
 
 %Variables
-m_err = double(val-pval);
+m_err = double(zscore(val-pval));
 m_val = double(val);
-m_bpm = double(bpm);
 m_sids = double(sids);
 
-% Primary Test:  Model SVM & BPM combined
-tbl = table(m_err,m_val,m_sids,'VariableNames',{'trg','pred1','subj'});
+% Primary Test: 
+tbl = table(m_err,m_val,m_sids,'VariableNames',{'trg', ...
+                    'pred1','subj'});
 mdl_fe = fitlme(tbl,['trg ~ 1 + pred1']);
 mdl_re= fitlme(tbl,['trg ~ 1 + pred1 + (1+pred1|subj)']);
 
-%%Explore random effects across model types
+% Explore random effects across model types
 fe_v_re = compare(mdl_fe,mdl_re);
 
 mdl = mdl_fe;
 if(fe_v_re.pValue<0.05);
-    disp('   random effects matter');
+    logger('   random effects matter',proj.path.logfile);
     mdl = mdl_re;
 else
-    disp('   random effects DO NOT matter');
+    logger('   random effects DO NOT matter',proj.path.logfile);
 end
 
-disp(' ');
+logger(' ',proj.path.logfile);
 
 %% ----------------------------------------
 %% Examine Main Effect
+
 [~,~,FE] = fixedEffects(mdl);
 if(FE.pValue(2)<0.05)
-    disp('Fixed Effects are significant');
-    disp(['  p=',num2str(FE.pValue(2))]);
+    logger('Fixed Effects are significant',proj.path.logfile);
+    logger(['  FE(1)=',num2str(FE.Estimate(1))],proj.path.logfile);
+    logger(['     p=',num2str(FE.pValue(1))],proj.path.logfile);
+    logger(['  FE(2)=',num2str(FE.Estimate(2))],proj.path.logfile);
+    logger(['     p=',num2str(FE.pValue(2))],proj.path.logfile);
+else
+    logger('Fixed Effects are **NOT** significant',proj.path.logfile);
+    logger(['  FE(1)=',num2str(FE.Estimate(1))],proj.path.logfile);
+    logger(['     p=',num2str(FE.pValue(1))],proj.path.logfile);
+    logger(['  FE(2)=',num2str(FE.Estimate(2))],proj.path.logfile);
+    logger(['     p=',num2str(FE.pValue(2))],proj.path.logfile);
 end
 
 %% ----------------------------------------
 %% compute effect size
+
 Rsqr = mdl.Rsquared.Ordinary;
 Fsqr = Rsqr/(1-Rsqr);
 logger(['  All Rsqr=',num2str(Rsqr)],proj.path.logfile);
 logger(['  Fsqr=',num2str(Fsqr)],proj.path.logfile);
-
-disp(' ');
-
+logger(' ',proj.path.logfile);
 
 %% ----------------------------------------
+%% plot effects
+
+figure(1)
+set(gcf,'color','w');
+
 %% format figure
 ymin = -3;
 ymax = 3;
-xmin = -3;
-xmax = 3;
-
-
-%% ----------------------------------------
-figure(1)
-set(gcf,'color','w');
+xmin = -2;
+xmax = 2;
 
 %% plot all the datapoints
 scatter(m_val,m_err,10,'MarkerFaceColor', ...
@@ -145,7 +141,7 @@ scatter(m_val,m_err,10,'MarkerFaceColor', ...
         proj.param.plot.light_grey);
 hold on;
 
-%% overlay the SVM group effeect
+%% overlay the group effect
 [y,idx] = sort(m_val);
 sx1 = y;
 sy1 = FE.Estimate(1) + FE.Estimate(2)*sx1; 
@@ -159,37 +155,10 @@ fig = gcf;
 ax = fig.CurrentAxes;
 ax.FontSize = proj.param.plot.axisLabelFontSize;
 
-xlabel('Predicted Valence Scores');
-ylabel('Valence Scores');
+xlabel('Valence Scores');
+ylabel('Valence Prediciton Error');
 
 %% explot hi-resolution figure
-export_fig 'EX_predicted_v_summary.png' -r300  
-eval(['! mv ',proj.path.code,'EX_predicted_v_summary.png ',proj.path.fig]);
+export_fig 'EX_v_err_wrt_v_summary.png' -r300  
+eval(['! mv ',proj.path.code,'EX_v_err_wrt_v_summary.png ',proj.path.fig]);
 
-
-% %% ----------------------------------------
-% figure(2)
-% set(gcf,'color','w');
-% 
-% %% plot all the datapoints
-% scatter(pred2*FE.Estimate(3),measures-(FE.Estimate(1)+FE.Estimate(2)*spred1),10, ...
-%         'MarkerFaceColor', proj.param.plot.white,'MarkerEdgeColor', ...
-%         proj.param.plot.light_grey);
-% hold on;
-% 
-% %% overlay the estimate
-% [y,idx] = sort(pred2);
-% spred2 = y;
-% y_hat = FE.Estimate(3)*spred2; 
-% plot(spred2,y_hat,'b-','LineWidth',3);
-% 
-% xlim([-.1,.1]);
-% ylim([ymin,ymax]);
-% 
-% hold off;
-% fig = gcf;
-% ax = fig.CurrentAxes;
-% ax.FontSize = proj.param.plot.axisLabelFontSize;
-% 
-% ylabel('Valence Scores');
-% ylabel('Main effect residuals');
