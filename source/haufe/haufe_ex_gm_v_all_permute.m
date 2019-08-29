@@ -210,7 +210,8 @@ for i = 1:Nloop
         % ----------------------------------------
         % Save out: mean encoding of group gray-matter voxels
         if(numel(row_ids_v)>0)
-            mu_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v_tstat(row_ids_v,1),gm_nii,row_ids_v);
+            % mu_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v_tstat(row_ids_v,1),gm_nii,row_ids_v);
+            mu_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(row_ids_v,1),gm_nii,row_ids_v);
             save_nii(mu_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_haufe_v_N=',num2str(Nperm),'.nii']);
         end
 
@@ -218,7 +219,8 @@ for i = 1:Nloop
         % Save out: mean encoding of permstrap sign. (p<0.05) group
         % gray-matter voxels
         if(numel(sig_ids_05_v)>0)
-            mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v_tstat(sig_ids_05_v,1),gm_nii,sig_ids_05_v);
+            % mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v_tstat(sig_ids_05_v,1),gm_nii,sig_ids_05_v);
+            mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(sig_ids_05_v,1),gm_nii,sig_ids_05_v);
             save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_05.nii']);
         end
 
@@ -226,6 +228,7 @@ for i = 1:Nloop
         % Save out: mean encoding of permstrap sign. (p<0.01) group
         % gray-matter voxels
         if(numel(sig_ids_01_v)>0)
+            % mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(sig_ids_01_v,1),gm_nii,sig_ids_01_v);
             mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(sig_ids_01_v,1),gm_nii,sig_ids_01_v);
             save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_01.nii']);
         end
@@ -233,6 +236,7 @@ for i = 1:Nloop
         % ----------------------------------------
         % Save out: mean encoding of permstrap sign. (p<0.001) group gray-matter voxels
         if(numel(sig_ids_001_v)>0)
+            % mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(sig_ids_001_v,1),gm_nii,sig_ids_001_v);
              mu_perm_v_haufe_nii = build_nii_from_gm_mask(grp_haufe_v(sig_ids_001_v,1),gm_nii,sig_ids_001_v);
              save_nii(mu_perm_v_haufe_nii,[proj.path.haufe.v_permute_all,'mu_perm_haufe_v_N=',num2str(Nperm),'_001.nii']);
         end

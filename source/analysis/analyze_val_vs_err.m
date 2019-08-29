@@ -73,7 +73,7 @@ end
 %% Group GLMM fit
 
 %Variables
-m_err = double(zscore(val-pval));
+m_err = double(val-pval);
 m_val = double(val);
 m_sids = double(sids);
 

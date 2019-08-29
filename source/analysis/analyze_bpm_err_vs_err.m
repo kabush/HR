@@ -85,8 +85,8 @@ end
 %% Group GLMM fit
 
 %Variables
-m_bpm_err = double(zscore(bpm-val));
-m_err = double(zscore(pval-val));
+m_bpm_err = double(bpm-val);
+m_err = double(pval-val);
 m_bpm = double(bpm);
 m_sids = double(sids);
 

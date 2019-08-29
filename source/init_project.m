@@ -211,10 +211,9 @@ proj.param.physio.hr.convert_bpm = 60;
 
 %% MVPA parameters
 proj.param.mvpa.kernel = 'linear';
-proj.param.mvpa.n_resamp = 1; % should be >= 30
 
 %% Haufe parameters
-proj.param.haufe.npermute = 500;
+proj.param.haufe.npermute = 250;
 proj.param.haufe.chunk = 10;
 
 %% Plotting parameters
