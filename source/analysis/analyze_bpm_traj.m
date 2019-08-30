@@ -112,7 +112,7 @@ hold on;
 plot(xseq,mu_neg_traj,'b-','LineWidth',3);
 plot(xseq,neg_ci_hi,'b--','LineWidth',1);
 plot(xseq,neg_ci_lo,'b--','LineWidth',1);
-
+hold off;
 
 xlim([0.5,4.0]);
 

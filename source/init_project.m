@@ -103,16 +103,10 @@ proj.path.trg.ex = [proj.path.data,proj.path.trg.name,'target_ex/'];
 proj.path.trg.in = [proj.path.data,proj.path.trg.name,'target_in/'];
 
 %% MVPA paths (all)
-% proj.path.mvpa.hr_thresh = [proj.path.data,proj.path.mvpa.name,'hr_thresh/'];  
-% proj.path.mvpa.hr_all = [proj.path.data,proj.path.mvpa.name,'hr_all/'];  
 proj.path.mvpa.v_all = [proj.path.data,proj.path.mvpa.name,'v_all/'];  
 proj.path.mvpa.bpm_all = [proj.path.data,proj.path.mvpa.name,'bpm_all/'];  
 
 %% Haufe paths (all)
-% proj.path.haufe.hr_permute_thresh = [proj.path.data,proj.path.haufe.name,'hr_permute_thresh/'];  
-% proj.path.haufe.hr_permute_all = [proj.path.data,proj.path.haufe.name,'hr_permute_all/'];  
-% proj.path.haufe.cosine = [proj.path.data,proj.path.haufe.name,'cosine/'];  
-% proj.path.haufe.bpm_permute_all = [proj.path.data,proj.path.haufe.name,'bpm_permute_all/'];  
 proj.path.haufe.v_permute_all = [proj.path.data,proj.path.haufe.name,'v_permute_all/'];  
 
 %% Task file nomenclature
@@ -213,7 +207,7 @@ proj.param.physio.hr.convert_bpm = 60;
 proj.param.mvpa.kernel = 'linear';
 
 %% Haufe parameters
-proj.param.haufe.npermute = 250;
+proj.param.haufe.npermute = 1200;
 proj.param.haufe.chunk = 10;
 
 %% Plotting parameters

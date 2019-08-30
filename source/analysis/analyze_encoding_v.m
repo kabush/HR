@@ -80,7 +80,11 @@ try
             proj.param.plot.white,'MarkerEdgeColor', ...
             proj.param.plot.light_grey);
     hold on;
-    plot(sort(m_this),sort(m_this)*FE.Estimate(2)+FE.Estimate(1),'r-','LineWidth',3);
+
+    xseq = linspace(min(m_this),max(m_this));
+    plot(xseq,xseq*FE.Estimate(2)+FE.Estimate(1),'r-','LineWidth',3);
+
+    xlim([-1.1,1.4]);
 
     hold off;
     fig = gcf;

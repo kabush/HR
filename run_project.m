@@ -88,11 +88,20 @@ analyze_bpm_vs_err;
 %% STEP 9: Trajectory analysis
 analyze_bpm_traj;
 
+%% ------------------------------------------------------------ 
 %% STEP 10: Compare Encoding (SciReport -> Now)
 analyze_encoding_v;
 
 %% ------------------------------------------------------------ 
+%% STEP 11: Compare Thresholding
+analyze_mvpa_vs_bpm_thresh;
+
+%% ------------------------------------------------------------ 
 %% STEP 11: Hyperplane analysis
 haufe_ex_gm_v_all_permute;
+
+%% ------------------------------------------------------------ 
+%% STEP 12: Compare Encoding (SciReport -> Now)
+analyze_encoding_v;
 
 toc
