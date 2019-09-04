@@ -140,13 +140,17 @@ figure(1)
 set(gcf,'color','w');
 
 %% format figure
-ymin = -2.2;
-ymax = 2.0;
-xmin = -3;
-xmax = 3;
+ymin = -2;
+ymax = 1.75;
+xmin = -1.25;
+xmax = 1.25;
+
+
+
 
 %% plot all the datapoints
-scatter(m_pval,m_val,10,'MarkerFaceColor', ...
+predictors  = m_pval*FE.Estimate(2)+m_bpm*FE.Estimate(2)+FE.Estimate(1);
+scatter(predictors,m_val,10,'MarkerFaceColor', ...
         proj.param.plot.white,'MarkerEdgeColor', ...
         proj.param.plot.light_grey);
 hold on;

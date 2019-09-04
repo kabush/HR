@@ -1,0 +1,5345 @@
+************************************************
+Intra-subject LOOCV MVPA RGR GM Features -> Valence
+************************************************
+CTM:001
+    rho=0.18583
+CTM:003
+    rho=0.40985
+CTM:004
+    rho=0.35451
+CTM:007
+    rho=0.17877
+CTM:008
+    rho=0.048795
+CTM:009
+    rho=0.046489
+CTM:010
+    rho=0.16489
+CTM:012
+    rho=0.10596
+CTM:013
+    rho=0.21801
+CTM:014
+    rho=0.24198
+CTM:018
+    rho=0.13463
+CTM:021
+    rho=0.39911
+CTM:022
+    rho=0.23697
+CTM:023
+    rho=-0.008146
+CTM:026
+    rho=0.40912
+CTM:028
+    rho=0.26635
+CTM:024
+    rho=0.28346
+CTM:029
+    rho=-0.077209
+CTM:030
+    rho=0.31346
+CTM:031
+    rho=0.19346
+CTM:033
+    rho=0.015459
+CTM:034
+    rho=0.29581
+CTM:035
+   quality check failed
+CTM:036
+    rho=0.37222
+CTM:039
+    rho=0.21446
+CTM:040
+   quality check failed
+CTM:042
+    rho=0.52473
+CTM:043
+    rho=0.17518
+CTM:044
+    rho=0.22617
+CTM:045
+    rho=0.12657
+CTM:046
+    rho=0.10944
+INCA:003
+    rho=0.17983
+INCA:006
+    rho=0.1238
+INCA:007
+    rho=0.26268
+INCA:010
+    rho=0.26984
+INCA:012
+    rho=0.10686
+INCA:013
+    rho=0.34099
+INCA:014
+    rho=0.36173
+INCA:016
+    rho=0.41113
+INCA:017
+    rho=0.083741
+INCA:018
+    rho=0.35442
+INCA:020
+    rho=0.21384
+INCA:021
+    rho=0.28522
+INCA:019
+    rho=0.0074503
+INCA:023
+    rho=0.38651
+INCA:024
+    rho=0.13387
+INCA:031
+    rho=0.30597
+INCA:033
+    rho=0.27772
+INCA:035
+    rho=0.24775
+INCA:037
+    rho=0.12806
+************************************************
+Compare Predicted VAL and BPM in prediting VAL  
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are significant
+  FE(1)=9.6911e-10
+     p=1
+  FE(2)=0.2204
+     p=8.0906e-45
+  FE(3)=0.032467
+     p=0.036201
+  All Rsqr=0.050039
+  Fsqr=0.052674
+ 
+************************************************
+Compare Predicted VAL predicting VAL    
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+INCA:033
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are significant
+  FE(1)=9.7602e-10
+     p=1
+  FE(2)=0.22183
+     p=2.5211e-49
+  All Rsqr=0.049208
+  Fsqr=0.051755
+ 
+************************************************
+Compare BPM in prediting VAL  
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+CTM:036
+CTM:039
+CTM:040
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are significant
+  FE(1)=1.4857e-15
+     p=1
+  FE(2)=0.035993
+     p=0.020529
+  All Rsqr=0.0012955
+  Fsqr=0.0012972
+ 
+************************************************
+Compare VAL predicting VAL prediction error     
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+INCA:033
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are significant
+  FE(1)=2.874e-09
+     p=1
+  FE(2)=0.77817
+     p=0
+  All Rsqr=0.38909
+  Fsqr=0.63689
+ 
+************************************************
+Compare VAL predicting BPM prediction error  
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are significant
+  FE(1)=5.4506e-18
+     p=1
+  FE(2)=0.96125
+     p=0
+  All Rsqr=0.48063
+  Fsqr=0.9254
+ 
+************************************************
+Compare BPM prediction error predicting prediction error  
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are significant
+  FE(1)=-2.8306e-09
+     p=1
+  FE(2)=0.39969
+     p=3.7418e-191
+  All Rsqr=0.19721
+  Fsqr=0.24566
+ 
+************************************************
+Compare BPM in prediting predicted VAL  
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are **NOT** significant
+  FE(1)=-4.397e-09
+     p=1
+  FE(2)=0.028486
+     p=0.073002
+  All Rsqr=0.00081144
+  Fsqr=0.0008121
+ 
+************************************************
+Compare BPM in prediting prediction error  
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+   random effects DO NOT matter
+ 
+Fixed Effects are **NOT** significant
+  FE(1)=-2.8306e-09
+     p=1
+  FE(2)=-0.01026
+     p=0.60493
+  All Rsqr=6.759e-05
+  Fsqr=6.7594e-05
+ 
+************************************************
+ Compare Encoding (This Paper to SciReport 2018) 
+************************************************
+  -Encoding Load Error
+************************************************
+Compare Predicted VAL and BPM in prediting VAL  
+************************************************
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.22133
+     p=3.6905e-45
+  Rsqr=0.048985
+ 
+  FE(2)=0.038745
+     p=0.01473
+  Rsqr=0.0015012
+ 
+  FE(2)=0.2204
+     p=8.0906e-45
+  Rsqr=0.050039
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.22881
+     p=4.2942e-44
+  Rsqr=0.052353
+ 
+  FE(2)=0.038519
+     p=0.020644
+  Rsqr=0.0014837
+ 
+  FE(2)=0.2281
+     p=7.2155e-44
+  Rsqr=0.053488
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.23448
+     p=1.4561e-43
+  Rsqr=0.054979
+ 
+  FE(2)=0.038401
+     p=0.025362
+  Rsqr=0.0014746
+ 
+  FE(2)=0.23371
+     p=2.5391e-43
+  Rsqr=0.056065
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.23945
+     p=3.8307e-43
+  Rsqr=0.057338
+ 
+  FE(2)=0.041563
+     p=0.018455
+  Rsqr=0.0017274
+ 
+  FE(2)=0.23867
+     p=6.4372e-43
+  Rsqr=0.058665
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.25495
+     p=2.405e-44
+  Rsqr=0.065
+ 
+  FE(2)=0.044845
+     p=0.015622
+  Rsqr=0.0020111
+ 
+  FE(2)=0.25431
+     p=3.3513e-44
+  Rsqr=0.066669
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.26095
+     p=2.2108e-42
+  Rsqr=0.068094
+ 
+  FE(2)=0.050779
+     p=0.0090407
+  Rsqr=0.0025785
+ 
+  FE(2)=0.26027
+     p=2.9018e-42
+  Rsqr=0.070307
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.26199
+     p=2.3614e-41
+  Rsqr=0.06864
+ 
+  FE(2)=0.053954
+     p=0.0063846
+  Rsqr=0.0029111
+ 
+  FE(2)=0.26118
+     p=3.3103e-41
+  Rsqr=0.071107
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.28009
+     p=5.6621e-41
+  Rsqr=0.078451
+ 
+  FE(2)=0.052853
+     p=0.013121
+  Rsqr=0.0027934
+ 
+  FE(2)=0.27948
+     p=6.6652e-41
+  Rsqr=0.080891
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.29443
+     p=2.5759e-38
+  Rsqr=0.086688
+ 
+  FE(2)=0.051933
+     p=0.0255
+  Rsqr=0.0026971
+ 
+  FE(2)=0.29519
+     p=1.308e-38
+  Rsqr=0.089818
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.30889
+     p=2.9124e-40
+  Rsqr=0.095416
+ 
+  FE(2)=0.060835
+     p=0.010644
+  Rsqr=0.0037009
+ 
+  FE(2)=0.3086
+     p=2.4686e-40
+  Rsqr=0.098935
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.30382
+     p=3.2115e-35
+  Rsqr=0.092306
+ 
+  FE(2)=0.077951
+     p=0.0018922
+  Rsqr=0.0060764
+ 
+  FE(2)=0.30283
+     p=3.3794e-35
+  Rsqr=0.097767
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.33613
+     p=5.7152e-34
+  Rsqr=0.11298
+ 
+  FE(2)=0.057219
+     p=0.044473
+  Rsqr=0.003274
+ 
+  FE(2)=0.33462
+     p=9.7344e-34
+  Rsqr=0.11513
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.32408
+     p=2.3194e-28
+  Rsqr=0.10503
+ 
+  FE(2)=0.03794
+     p=0.20821
+  Rsqr=0.0014395
+ 
+  FE(2)=0.32306
+     p=3.5751e-28
+  Rsqr=0.10562
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.34401
+     p=6.6699e-26
+  Rsqr=0.11835
+ 
+  FE(2)=0.05159
+     p=0.12577
+  Rsqr=0.0026615
+ 
+  FE(2)=0.34363
+     p=6.5468e-26
+  Rsqr=0.12074
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.37258
+     p=1.1524e-24
+  Rsqr=0.13882
+ 
+  FE(2)=0.080228
+     p=0.033061
+  Rsqr=0.0064365
+ 
+  FE(2)=0.37069
+     p=1.4916e-24
+  Rsqr=0.14375
+CTM:001
+CTM:003
+CTM:004
+CTM:007
+CTM:008
+CTM:009
+CTM:010
+CTM:012
+CTM:013
+CTM:014
+   Missing traj
+CTM:018
+CTM:021
+CTM:022
+CTM:023
+CTM:026
+CTM:028
+CTM:024
+CTM:029
+CTM:030
+CTM:031
+CTM:033
+CTM:034
+CTM:035
+   Missing svm
+CTM:036
+CTM:039
+CTM:040
+   Missing svm
+CTM:042
+CTM:043
+CTM:044
+CTM:045
+CTM:046
+INCA:003
+INCA:006
+INCA:007
+INCA:010
+INCA:012
+INCA:013
+INCA:014
+INCA:016
+INCA:017
+   Missing traj
+INCA:018
+INCA:020
+INCA:021
+INCA:019
+INCA:023
+INCA:024
+INCA:031
+   Missing traj
+INCA:033
+   Missing traj
+INCA:035
+INCA:037
+  FE(2)=0.38857
+     p=1.5313e-20
+  Rsqr=0.15099
+ 
+  FE(2)=0.14616
+     p=0.00073811
+  Rsqr=0.021363
+ 
+  FE(2)=0.38498
+     p=1.3816e-20
+  Rsqr=0.16947
+************************************************
+ Global Permutation Testing of MVPA Hyperplanes 
+************************************************
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=2
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=3
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=4
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=5
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=6
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=7
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=8
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=9
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=10
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=11
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=12
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=13
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=14
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=15
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=16
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=17
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=18
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=19
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=20
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=21
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=22
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=23
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=24
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=25
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=26
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=27
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=28
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=29
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=30
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=31
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=32
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=33
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=34
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=35
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=36
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=37
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=38
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=39
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=40
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=41
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=42
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=43
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=44
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=45
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=46
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=47
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=48
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=49
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=50
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=51
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=52
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=53
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=54
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=55
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=56
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=57
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=58
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=59
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=60
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=61
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=62
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=63
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=64
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=65
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=66
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=67
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=68
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=69
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=70
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=71
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=72
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=73
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=74
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=75
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=76
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=77
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=78
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=79
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=80
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=81
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=82
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=83
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=84
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=85
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=86
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=87
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=88
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=89
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=90
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=91
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=92
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=93
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=94
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=95
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=96
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=97
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=98
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=99
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=100
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=101
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=102
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=103
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=104
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=105
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=106
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=107
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=108
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=109
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=110
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=111
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=112
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=113
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=114
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=115
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=116
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=117
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=118
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=119
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=120
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=121
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=122
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=123
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=124
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=125
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=126
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=127
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=128
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=129
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=130
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=131
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=132
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=133
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=134
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=135
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=136
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=137
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=138
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=139
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=140
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=141
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=142
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=143
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=144
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=145
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=146
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=147
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=148
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=149
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=150
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=151
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=152
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=153
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=154
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=155
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=156
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=157
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=158
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=159
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=160
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=161
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=162
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=163
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=164
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=165
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=166
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=167
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=168
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=169
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=170
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=171
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=172
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=173
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=174
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=175
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=176
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=177
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=178
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=179
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=180
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=181
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=182
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=183
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=184
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=185
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=186
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=187
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=188
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=189
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=190
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=191
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=192
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=193
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=194
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=195
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=196
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=197
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=198
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=199
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=200
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=201
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=202
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=203
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=204
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=205
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=206
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=207
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=208
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=209
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=210
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=211
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=212
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=213
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=214
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=215
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=216
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=217
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=218
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=219
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=220
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=221
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=222
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=223
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=224
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=225
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=226
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=227
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=228
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=229
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=230
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=231
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=232
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=233
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=234
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=235
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=236
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=237
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=238
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=239
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=240
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=241
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=242
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=243
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=244
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=245
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=246
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=247
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=248
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=249
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=250
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=251
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=252
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=253
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=254
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=255
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=256
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=257
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=258
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=259
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=260
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=261
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=262
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=263
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=264
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=265
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=266
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=267
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=268
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=269
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=270
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=271
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=272
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=273
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=274
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=275
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=276
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=277
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=278
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=279
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=280
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=281
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=282
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=283
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=284
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=285
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=286
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=287
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=288
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=289
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=290
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=291
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=292
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=293
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=294
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=295
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=296
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=297
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=298
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=299
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=300
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=301
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=302
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=303
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=304
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=305
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=306
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=307
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=308
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=309
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=310
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=311
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=312
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=313
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=314
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=315
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=316
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=317
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=318
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=319
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=320
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=321
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=322
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=323
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=324
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=325
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=326
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=327
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=328
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=329
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=330
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=331
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=332
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=333
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=334
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=335
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=336
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=337
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=338
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=339
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=340
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=341
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=342
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=343
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=344
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=345
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=346
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=347
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=348
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=349
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=350
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=351
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=352
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=353
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=354
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=355
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=356
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=357
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=358
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=359
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=360
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=361
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=362
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=363
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=364
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=365
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=366
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=367
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=368
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=369
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=370
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=371
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=372
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=373
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=374
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=375
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=376
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=377
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=378
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=379
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=380
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=381
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=382
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=383
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=384
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=385
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=386
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=387
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=388
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=389
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=390
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=391
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=392
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=393
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=394
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=395
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=396
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=397
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=398
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=399
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=400
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=401
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=402
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=403
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=404
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=405
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=406
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=407
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=408
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=409
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=410
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=411
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=412
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=413
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=414
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=415
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=416
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=417
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=418
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=419
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=420
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=421
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=422
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=423
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=424
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=425
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=426
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=427
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=428
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=429
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=430
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=431
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=432
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=433
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=434
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=435
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=436
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=437
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=438
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=439
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=440
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=441
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=442
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=443
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=444
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=445
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=446
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=447
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=448
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=449
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=450
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=451
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=452
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=453
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=454
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=455
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=456
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=457
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=458
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=459
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=460
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=461
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=462
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=463
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=464
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=465
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=466
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=467
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=468
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=469
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=470
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=471
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=472
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=473
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=474
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=475
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=476
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=477
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=478
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=479
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=480
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=481
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=482
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=483
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=484
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=485
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=486
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=487
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=488
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=489
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=490
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=491
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=492
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=493
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=494
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=495
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=496
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=497
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=498
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=499
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=500
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=501
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=502
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=503
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=504
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=505
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=506
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=507
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=508
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=509
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=510
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=511
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=512
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=513
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=514
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=515
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=516
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=517
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=518
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=519
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=520
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=521
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=522
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=523
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=524
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=525
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=526
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=527
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=528
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=529
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=530
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=531
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=532
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=533
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=534
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=535
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=536
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=537
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=538
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=539
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=540
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=541
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=542
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=543
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=544
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=545
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=546
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=547
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=548
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=549
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=550
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=551
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=552
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=553
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=554
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=555
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=556
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=557
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=558
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=559
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=560
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=561
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=562
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=563
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=564
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=565
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=566
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=567
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=568
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=569
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=570
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=571
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=572
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=573
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=574
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=575
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=576
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=577
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=578
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=579
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=580
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=581
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=582
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=583
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=584
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=585
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=586
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=587
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=588
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=589
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=590
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=591
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=592
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=593
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=594
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=595
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=596
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=597
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=598
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=599
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=600
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=601
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=602
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=603
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=604
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=605
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=606
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=607
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=608
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=609
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=610
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=611
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=612
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=613
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=614
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=615
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=616
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=617
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=618
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=619
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=620
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=621
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=622
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=623
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=624
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=625
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=626
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=627
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=628
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=629
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=630
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=631
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=632
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=633
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=634
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=635
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=636
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=637
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=638
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=639
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=640
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=641
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=642
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=643
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=644
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=645
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=646
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=647
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=648
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=649
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=650
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=651
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=652
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=653
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=654
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=655
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=656
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=657
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=658
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=659
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=660
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=661
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=662
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=663
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=664
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=665
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=666
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=667
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=668
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=669
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=670
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=671
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=672
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=673
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=674
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=675
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=676
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=677
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=678
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=679
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=680
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=681
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=682
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=683
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=684
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=685
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=686
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=687
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=688
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=689
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=690
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=691
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=692
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=693
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=694
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=695
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=696
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=697
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=698
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=699
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=700
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=701
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=702
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=703
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=704
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=705
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=706
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=707
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=708
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=709
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=710
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=711
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=712
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=713
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=714
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=715
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=716
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=717
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=718
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=719
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=720
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=721
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=722
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=723
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=724
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=725
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=726
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=727
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=728
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=729
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=730
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=731
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=732
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=733
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=734
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=735
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=736
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=737
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=738
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=739
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=740
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=741
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=742
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=743
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=744
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=745
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=746
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=747
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=748
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=749
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=750
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=751
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=752
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=753
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=754
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=755
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=756
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=757
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=758
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=759
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=760
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=761
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=762
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=763
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=764
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=765
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=766
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=767
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=768
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=769
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=770
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=771
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=772
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=773
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=774
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=775
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=776
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=777
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=778
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=779
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=780
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=781
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=782
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=783
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=784
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=785
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=786
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=787
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=788
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=789
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=790
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=791
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=792
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=793
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=794
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=795
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=796
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=797
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=798
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=799
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=800
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=801
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=802
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=803
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=804
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=805
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=806
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=807
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=808
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=809
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=810
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=811
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=812
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=813
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=814
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=815
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=816
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=817
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=818
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=819
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=820
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=821
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=822
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=823
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=824
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=825
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=826
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=827
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=828
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=829
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=830
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=831
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=832
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=833
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=834
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=835
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=836
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=837
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=838
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=839
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=840
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=841
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=842
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=843
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=844
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=845
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=846
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=847
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=848
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=849
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=850
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=851
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=852
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=853
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=854
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=855
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=856
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=857
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=858
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=859
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=860
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=861
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=862
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=863
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=864
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=865
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=866
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=867
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=868
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=869
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=870
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=871
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=872
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=873
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=874
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=875
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=876
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=877
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=878
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=879
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=880
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=881
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=882
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=883
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=884
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=885
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=886
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=887
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=888
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=889
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=890
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=891
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=892
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=893
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=894
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=895
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=896
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=897
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=898
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=899
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=900
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=901
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=902
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=903
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=904
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=905
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=906
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=907
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=908
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=909
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=910
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=911
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=912
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=913
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=914
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=915
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=916
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=917
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=918
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=919
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=920
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=921
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=922
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=923
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=924
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=925
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=926
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=927
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=928
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=929
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=930
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=931
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=932
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=933
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=934
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=935
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=936
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=937
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=938
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=939
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=940
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=941
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=942
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=943
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=944
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=945
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=946
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=947
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=948
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=949
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=950
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=951
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=952
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=953
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=954
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=955
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=956
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=957
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=958
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=959
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=960
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=961
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=962
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=963
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=964
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=965
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=966
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=967
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=968
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=969
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=970
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=971
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=972
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=973
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=974
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=975
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=976
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=977
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=978
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=979
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=980
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=981
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=982
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=983
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=984
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=985
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=986
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=987
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=988
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=989
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=990
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=991
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=992
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=993
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=994
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=995
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=996
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=997
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=998
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=999
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1000
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1001
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1002
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1003
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1004
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1005
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1006
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1007
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1008
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1009
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1010
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1011
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1012
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1013
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1014
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1015
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1016
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1017
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1018
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1019
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1020
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1021
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1022
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1023
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1024
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1025
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1026
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1027
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1028
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1029
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1030
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1031
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1032
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1033
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1034
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1035
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1036
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1037
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1038
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1039
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1040
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1041
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1042
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1043
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1044
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1045
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1046
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1047
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1048
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1049
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1050
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1051
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1052
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1053
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1054
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1055
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1056
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1057
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1058
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1059
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1060
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1061
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1062
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1063
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1064
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1065
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1066
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1067
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1068
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1069
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1070
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1071
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1072
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1073
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1074
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1075
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1076
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1077
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1078
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1079
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1080
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1081
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1082
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1083
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1084
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1085
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1086
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1087
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1088
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1089
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1090
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1091
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1092
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1093
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1094
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1095
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1096
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1097
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1098
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1099
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1100
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1101
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1102
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1103
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1104
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1105
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1106
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1107
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1108
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1109
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1110
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1111
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1112
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1113
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1114
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1115
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1116
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1117
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1118
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1119
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1120
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1121
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1122
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1123
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1124
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1125
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1126
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1127
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1128
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1129
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1130
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1131
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1132
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1133
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1134
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1135
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1136
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1137
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1138
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1139
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1140
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1141
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1142
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1143
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1144
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1145
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1146
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1147
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1148
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1149
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1150
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1151
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1152
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1153
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1154
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1155
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1156
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1157
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1158
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1159
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1160
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1161
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1162
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1163
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1164
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1165
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1166
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1167
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1168
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1169
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1170
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1171
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1172
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1173
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1174
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1175
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1176
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1177
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1178
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1179
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1180
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1181
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1182
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1183
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1184
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1185
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1186
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1187
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1188
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1189
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1190
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1191
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1192
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1193
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1194
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1195
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1196
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1197
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1198
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1199
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1200
+  -Failed Quality Check
+  -Failed Quality Check
+INCA:037:i=1201
+************************************************
+ Compare Encoding (This Paper to SciReport 2018) 
+************************************************
+ 
+Fixed Effects are significant
+  FE(1)=0.010068
+     p=0.091759
+  FE(2)=1.0736
+     p=0
+  All Rsqr=0.84988
+  Fsqr=5.6614
+ 
+  -Encoding Load Error

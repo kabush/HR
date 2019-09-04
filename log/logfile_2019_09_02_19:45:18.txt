@@ -1,0 +1,12 @@
+************************************************
+ Compare Encoding (This Paper to SciReport 2018) 
+************************************************
+ 
+Fixed Effects are significant
+  FE(1)=0.010068
+     p=0.091759
+  FE(2)=1.0736
+     p=0
+  All Rsqr=0.84988
+  Fsqr=5.6614
+ 
