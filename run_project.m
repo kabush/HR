@@ -64,9 +64,9 @@ init_project;
 % %% STEP 6: Conduct MVPA
 % mvpa_fmri_ex_gm_rgr_v;  % intra-subj (state->valence)
 % 
-%% ------------------------------------------------------------
-%% STEP 7: Compare MVPA (of v) predictions to BPM decleration
-analyze_mvpa_vs_bpm_v;
+% %% ------------------------------------------------------------
+% %% STEP 7: Compare MVPA (of v) predictions to BPM decleration
+% analyze_mvpa_vs_bpm_v;
 % 
 % %% ------------------------------------------------------------
 % %% STEP 8: Interrogate Role of BPM
@@ -96,8 +96,8 @@ analyze_mvpa_vs_bpm_v;
 % %% STEP 11: Hyperplane analysis
 % haufe_ex_gm_v_all_permute;
 % 
-% %% ------------------------------------------------------------ 
-% %% STEP 12: Compare Encoding (SciReport -> Now)
-% analyze_encoding_v;
+%% ------------------------------------------------------------ 
+%% STEP 12: Compare Encoding (SciReport -> Now)
+analyze_encoding_v;
 
 toc

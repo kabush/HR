@@ -46,16 +46,16 @@ best practices (and document literature of each step).
 2) Construct beta-series (Rissman, 2004) features for each data type
 where relevant (fMRI & HR change)
 
-3) Predict cognitive (i.e., emotion) and physiological (i.e., HR change
-betas) via fMRI-derived whole-brain beta features to identify the
-"plant" of the control system. For the purposes of this project, we
-define the plant as the functional neuranatomical activations encoding
-the valence dimension of affect according to the circumplex model of
-emotion.  Beta-series of fMRI are referred to (pseudocorrectly) as
-brain states.
+3) Predict cognitive (i.e., emotion) measures via physiological (i.e.,
+HR change betas) and fMRI-derived whole-brain neural activations to
+identify the "plant" of the system (valence). For the purposes of this
+project, we define the plant as the functional neuranatomical
+activations encoding the valence dimension of affect according to the
+circumplex model of emotion.  Beta-series of fMRI are referred to
+(pseudo-correctly) as brain states.
 
 4) Identify functional neuranatomical descriptions of affect
-processing (including neural predictors of physiological signals).
+processing.
 
 # ----------------------------------------
 # ----------------------------------------

@@ -31,6 +31,7 @@ try
 
     %% Find joint space
     in_img = intersect(in_this_img,in_sci_img);
+    logger(['Number of joint voxels: ',numel(in_img)],proj.path.logfile);
 
     %% Group GLMM fit
     

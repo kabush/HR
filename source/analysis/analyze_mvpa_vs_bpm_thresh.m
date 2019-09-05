@@ -21,6 +21,8 @@ logger(['************************************************'],proj.path.logfile);
 label_id = load([proj.path.trg.ex,'stim_ids.txt']);
 v_score = load([proj.path.trg.ex,'stim_v_scores.txt']);
 v_score = v_score(find(label_id==proj.param.trg.ex_id));
+a_score = load([proj.path.trg.ex,'stim_a_scores.txt']);
+a_score = a_score(find(label_id==proj.param.trg.ex_id));
 
 %% ----------------------------------------
 %% load subjs
@@ -50,6 +52,12 @@ Nids = [];
 mu_pos_set = [];
 mu_neg_set = [];
 
+mu_a_pos_set = [];
+mu_a_neg_set = [];
+std_v_pos_set = [];
+std_v_neg_set = [];
+std_a_pos_set = [];
+std_a_neg_set = [];
 
 for j = 1:numel(thresh_seq);
 
@@ -113,6 +121,16 @@ for j = 1:numel(thresh_seq);
 
     mu_pos_set = [mu_pos_set,mean(v_score(good_ids(find(v_score(good_ids)>=mu_likert))))];
     mu_neg_set = [mu_neg_set,mean(v_score(good_ids(find(v_score(good_ids)<mu_likert))))];
+
+    mu_a_pos_set = [mu_a_pos_set,mean(a_score(good_ids(find(v_score(good_ids)>=mu_likert))))];
+    mu_a_neg_set = [mu_a_neg_set,mean(a_score(good_ids(find(v_score(good_ids)<mu_likert))))];
+
+    std_v_pos_set = [std_v_pos_set,std(v_score(good_ids(find(v_score(good_ids)>=mu_likert))))];
+    std_v_neg_set = [std_v_neg_set,std(v_score(good_ids(find(v_score(good_ids)<mu_likert))))];
+
+    std_a_pos_set = [std_a_pos_set,std(a_score(good_ids(find(v_score(good_ids)>=mu_likert))))];
+    std_a_neg_set = [std_a_neg_set,std(a_score(good_ids(find(v_score(good_ids)<mu_likert))))];
+
     
     
     %% ----------------------------------------

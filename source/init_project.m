@@ -24,9 +24,6 @@ addpath(genpath(proj.path.kablab));
 proj.path.export_fig = '/home/kabush/lib/export_fig/'
 addpath(genpath(proj.path.export_fig));
 
-% proj.path.notboxplot = '/home/kabush/lib/noboxplot/'
-% addpath(genpath(proj.path.notboxplot));
-
 proj.path.nifti = '/home/kabush/lib/nifti/'
 addpath(genpath(proj.path.nifti));
 
